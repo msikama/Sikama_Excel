@@ -1,0 +1,3 @@
+cn.ConnectionString = "Provider=IBMDA400;Data Source=GUABRPRD;Force Translate=1;User Id=" & UserForm1.TextBox1.Text & ";Password=" & UserForm1.TextBox2.Text & ""
+cn.ConnectionString = "Driver={Microsoft Access Driver (*.mdb)};Dbq=" & str_dbl & ";Uid=Admin;Pwd=;"
+cn.ConnectionString = "Driver={iSeries Access ODBC Driver};System=GUABRPRD;Uid=" & UserForm1.TextBox1.Text & ";Pwd=" & UserForm1.TextBox2.Text & ";ForceTranslation=1; timeout = 0"
