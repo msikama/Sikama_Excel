@@ -1,0 +1,1059 @@
+<customUI xmlns="http://schemas.microsoft.com/office/2009/07/customui" onLoad="onLoad"> 
+	 <ribbon startFromScratch="true">
+	 <!-- <ribbon startFromScratch="false"> -->
+		<tabs>
+		    <!-- teste -->
+			<tab id="R00" label="Painel"              insertAfterMso="TabHome" getVisible="Tab_R00_onTabSelected">
+                <group id="R00_Group_SV" label="Salva"> 
+                  <separator id="A00_SV_A1" visible="false"/> 
+                  <button id="button_SV" image="Save" label="SV" screentip="Salva" size="large"  onAction="button_SV_OnAction"/>  
+                  <separator id="A00_SV_A2" visible="false"/> 
+                </group>
+                <group id="R00_GroupMes" label="Período">
+                    <separator id="R00_Sep_01" visible="false"/> 
+                    <labelControl id="R00_Label_Periodo_0"/> 
+                    <box id="R00_Periodo" boxStyle="horizontal">
+                        <comboBox id="Combo_R00_Mes" 
+                            label="Mês" 
+                            image="Calen"
+                            sizeString="AAAAAAAAAAA" 
+                            getText="ComboBox_R00_Mes_getText"
+                            onChange="ComboBox_R00_Mes_OnChange"> 
+                            <item id="R00_M01" label="Janeiro"/> 
+                            <item id="R00_M02" label="Fevereiro"/> 
+                            <item id="R00_M03" label="Março"/> 
+                            <item id="R00_M04" label="Abril"/> 
+                            <item id="R00_M05" label="Maio"/> 
+                            <item id="R00_M06" label="Junho"/> 
+                            <item id="R00_M07" label="Julho"/> 
+                            <item id="R00_M08" label="Agosto"/> 
+                            <item id="R00_M09" label="Setembro"/> 
+                            <item id="R00_M10" label="Outubro"/> 
+                            <item id="R00_M11" label="Novembro"/> 
+                            <item id="R00_M12" label="Dezembro"/> 
+                        </comboBox>  	
+                        <comboBox id="Combo_R00_Ano" 
+                            sizeString="AAAAA" 
+                            getText="ComboBox_R00_Ano_getText"
+                            onChange="ComboBox_R00_Ano_OnChange"> 
+                            <item id="R00_A00" label="2018" /> 
+                            <item id="R00_A01" label="2019" /> 
+                            <item id="R00_A02" label="2020" /> 
+                            <item id="R00_A03" label="2021" /> 
+                            <item id="R00_A04" label="2022" /> 
+                            <item id="R00_A05" label="2023" /> 
+                            <item id="R00_A06" label="2024" /> 
+                            <item id="R00_A07" label="2025" /> 
+                            <item id="R00_A08" label="2026" /> 
+                        </comboBox>  	
+                    </box>
+                    <labelControl id="R00_Label_Periodo_1"/>         
+                    <separator id="R00_Sep_02" visible="false"/>     
+                </group>
+                <group id="R00_Group_CR" label="Crédito"> 
+                  <button id="button_CR" image="CR" label="CR" screentip="Crédito" size="large"  onAction="button_CR_OnAction"/>  
+                </group>
+                <group id="R00_Group_DB" label="Débito">      
+                  <button id="button_DF" image="DF" label="DF" screentip="Débito Fixo" size="large"  onAction="button_DF_OnAction"/>
+                  <button id="button_DV" image="DV" label="DV" screentip="Débito Variável" size="large"  onAction="button_DV_OnAction"/>
+                  <separator id="Seperator0"/> 
+                  <button id="button_DI" image="DI" label="DI" screentip="Débito Investimento" size="large"  onAction="button_DI_OnAction"/> 
+                 </group>
+                <group id="R00_Group_MC" label="Cartão">            
+                  <button id="button_MC"  image="MC" label="DCB"  screentip="MC CashBack" size="large"  onAction="button_MC_OnAction"/>  
+                  <button id="button_VC"  image="VS" label="DVS"  screentip="MC/VISA"     size="large"  onAction="button_VS_OnAction"/> 
+                </group>
+                <group id="R00_Grupo_Vazio_A" image="SemImagem"> 
+                      <separator id="R00_Vazio_A001" visible="false"/>   
+                      <separator id="R00_Vazio_A002" visible="false"/>  
+                      <button id="button_R00_Vazio_A001" image="SemImagem" size="large" enabled="false"/> 
+                </group>                      
+                <group id="R00_Grupo_Atualiza" label="Atualiza"> 
+                   <separator id="R00_AA_A1" visible="false"/> 
+                   <button id="button_R00_Atualiza" image="Atualiza" label="SDO" size="large" onAction="button_R00_Atualiza"/>
+                   <separator id="R00_AA_A2" visible="false"/>   
+                      <dialogBoxLauncher> 
+                        <button id="R00_BX_Saldo" 
+                                screentip="Calcular Diferença Saldo" 
+                                onAction = "DialogBoxLauncher_R00_BX_Diff_OnAction"/> 
+                      </dialogBoxLauncher>                   
+                </group>                    
+                <group id="R00_Grupo_Vazio_B" image="SemImagem"> 
+                      <button id="button_R00_Vazio_B001" image="SemImagem" size="large" enabled="false"/>
+                      <button id="button_R00_Vazio_B002" image="SemImagem" size="large" enabled="false"/>
+                      <separator id="R00_Vazio_S001" visible="false"/>   
+                      <separator id="R00_Vazio_S002" visible="false"/>   
+                      <separator id="R00_Vazio_S003" visible="false"/>   
+                      <separator id="R00_Vazio_S004" visible="false"/>   
+                      <separator id="R00_Vazio_S005" visible="false"/>   
+                      <separator id="R00_Vazio_S006" visible="false"/>   
+                </group>
+                <group id="R00_Group_IV"  label="Investimento">
+                  <separator id="R00_IV_A1" visible="false"/> 
+                  <button id="button_IV"  image="Inv" screentip="Investimentos" size="large" onAction="button_IV_OnAction"/> 
+                  <separator id="R00_IV_A2" visible="false"/> 
+                </group>
+                <group id="R00_Group_AP"  label="Aplicação">
+                  <separator id="R00_AP_A1" visible="false"/> 
+                  <button id="button_AP"  image="AP" screentip="Aplicacao" size="large" onAction="button_AP_OnAction"/> 
+                  <separator id="R00_AP_A2" visible="false"/> 
+                </group>
+                <group id="R00_Group_PR"  label="Parcelamento">
+                  <separator id="R00_PR_A1" visible="false"/> 
+                  <button id="button_PR"  image="PR" screentip="Parcelamento" size="large" onAction="button_PR_OnAction"/> 
+                  <separator id="R00_PR_A2" visible="false"/> 
+                </group>                          
+                <group id="R00_Group_Setup" label="Setup">            
+                  <separator id="R00_ST_A1" visible="false"/> 
+                  <button id="button_R00_Setup" image="Setup" screentip="Setup" size="large"   onAction="button_R00_Setup"/>  
+                  <separator id="R00_ST_A2" visible="false"/> 
+                </group>                                           
+			</tab>		    
+			<tab id="R01" label="Crédito"             insertAfterMso="R01"     getVisible="Tab_R01_onTabSelected">
+                <group id="R01_Grupo_Volta" getLabel="Label_R01_Grupo_Volta_getText"> 
+                    <separator id="R01_Grupo_Volta_001" visible = "false"/>
+                    <button id="button_R01_Volta" image="Volta" label="Volta" size="large" onAction="button_R00_Volta_OnAction"/>  
+                    <separator id="R01_Grupo_Volta_002" visible = "false"/>
+                </group> 			    
+ 				<group id="R01_Group_Mes" label="Período">
+ 				    <labelControl id="R01_Label_Periodo_0"/>   
+                    <box id="R01_Periodo" boxStyle="horizontal">
+                      <comboBox id="Combo_R01_Mes" 
+                                label="Mês" 
+                                sizeString="AAAAAAAAAAA" 
+                                getText="ComboBox_R01_Mes_getText"
+                                onChange="ComboBox_R01_Mes_OnChange"> 
+                        <item id="R01_M01" label="Janeiro" /> 
+                        <item id="R01_M02" label="Fevereiro" /> 
+                        <item id="R01_M03" label="Março" /> 
+                        <item id="R01_M04" label="Abril" /> 
+                        <item id="R01_M05" label="Maio" /> 
+                        <item id="R01_M06" label="Junho" /> 
+                        <item id="R01_M07" label="Julho" /> 
+                        <item id="R01_M08" label="Agosto" /> 
+                        <item id="R01_M09" label="Setembro" /> 
+                        <item id="R01_M10" label="Outubro" /> 
+                        <item id="R01_M11" label="Novembro" /> 
+                        <item id="R01_M12" label="Dezembro" /> 
+                        <item id="R01_M13" label="[Ano Inteiro]"/>
+                      </comboBox>  	
+                    </box>
+                    <labelControl id="R01_Label_Periodo_1"/>       
+                    <separator id="R01_Grupo_Volta_Seperator0"/> 
+  			    </group>
+                <group id="R01_GroupSaldo" label="Saldo">
+                    <labelControl id="R01_Label_01" label="Saldo"/>
+                    <labelControl id="R01_Label_03" label="Pendênte"/>
+                    <labelControl id="R01_Label_05" label="Não Efetuado"/>
+                    <separator id="R01_Sep_01" visible="false"/> 
+                    <separator id="R01_Sep_02" visible="false"/> 
+                    <labelControl id="R01_Label_02" getLabel="Label_R01_02_getText"/>      
+                    <labelControl id="R01_Label_04" getLabel="Label_R01_04_getText"/>    
+                    <labelControl id="R01_Label_06" getLabel="Label_R01_06_getText"/>    
+                </group>				    
+                <group id="R01_GroupSQLite" label="Banco Dados"> 
+                    <separator id="R01_GroupSQLite_002" visible = "false"/>
+                    <separator id="R01_GroupSQLite_003" visible = "false"/>        
+                    <button id="button_R01_SQLite_Salva"   image="Salva" label="Salva" size="large"  onAction="button_R01_SQLite_Salva_OnAction"/>  
+                    <separator id="R01_GroupSQLite_004" visible = "false"/>
+                    <separator id="R01_GroupSQLite_005" visible="false"/> 
+                   <button id="button_R01_Atualiza" image="Atualiza" label="SDO" size="large" onAction="button_R01_Atualiza"/>                    
+                    <separator id="R01_GroupSQLite_006" visible = "false"/>
+                </group>				        
+			</tab>
+
+			<tab id="R02" label="Débito Fixo"         insertAfterMso="R01"     getVisible="Tab_R02_onTabSelected">
+                <group id="R02_Grupo_Volta" getLabel="Label_R02_Grupo_Volta_getText"> 
+                   <separator id="R02_Grupo_Volta_001" visible = "false"/> 
+                   <button id="button_R02_Volta" image="Volta" label="Volta" size="large"  onAction="button_R00_Volta_OnAction"/>  
+                   <separator id="R02_Grupo_Volta_002" visible = "false"/>
+                </group> 			    
+ 				<group id="R02_Group_Mes" label="Período">
+ 				    <labelControl id="R02_Label_Periodo_0"/>   
+                    <box id="R02_Periodo" boxStyle="horizontal">
+                      <comboBox id="Combo_R02_Mes" 
+                                label="Mês" 
+                                sizeString="AAAAAAAAAAA" 
+                                getText="ComboBox_R02_Mes_getText"
+                                onChange="ComboBox_R02_Mes_OnChange"> 
+                        <item id="R02_M01" label="Janeiro" /> 
+                        <item id="R02_M02" label="Fevereiro" /> 
+                        <item id="R02_M03" label="Março" /> 
+                        <item id="R02_M04" label="Abril" /> 
+                        <item id="R02_M05" label="Maio" /> 
+                        <item id="R02_M06" label="Junho" /> 
+                        <item id="R02_M07" label="Julho" /> 
+                        <item id="R02_M08" label="Agosto" /> 
+                        <item id="R02_M09" label="Setembro" /> 
+                        <item id="R02_M10" label="Outubro" /> 
+                        <item id="R02_M11" label="Novembro" /> 
+                        <item id="R02_M12" label="Dezembro" /> 
+                        <item id="R02_M13" label="[Ano Inteiro]"/>
+                      </comboBox>  	
+                    </box>    	    
+                    <labelControl id="R02_Label_Periodo_1"/>       
+				</group>
+                <group id="R02_GroupSaldo" label="Saldo">
+                    <labelControl id="R02_Label_01" label="Saldo"/>
+                    <labelControl id="R02_Label_03" label="Pendênte"/>
+                    <labelControl id="R02_Label_05" label="Não Efetuado"/>
+                    <separator id="R02_Sep_01" visible="false"/> 
+                    <separator id="R02_Sep_02" visible="false"/> 
+                    <labelControl id="R02_Label_02" getLabel="Label_R02_02_getText"/>      
+                    <labelControl id="R02_Label_04" getLabel="Label_R02_04_getText"/>    
+                    <labelControl id="R02_Label_06" getLabel="Label_R02_06_getText"/>   
+                </group>
+                <group id="R02_GroupSQLite" label="Banco Dados"> 
+                    <separator id="R02_GroupSQLite_002" visible = "false"/>
+                    <separator id="R02_GroupSQLite_003" visible = "false"/>        
+                    <button id="button_R02_SQLite_Salva"   image="Salva" label="Salva" size="large"  onAction="button_R02_SQLite_Salva_OnAction"/>  
+                    <separator id="R02_GroupSQLite_004" visible = "false"/>
+                    <separator id="R02_GroupSQLite_005" visible="false"/> 
+                    <button id="button_R02_Atualiza" image="Atualiza" label="SDO" size="large" onAction="button_R02_Atualiza"/>                    
+                    <separator id="R02_GroupSQLite_006" visible = "false"/>
+                </group>	                    
+                <group id="R02a_GroupSaldo" label="Gastos">
+                    <labelControl id="R02a_Label_01" label="Fixo"/>
+                    <labelControl id="R02a_Label_03" label="Variável"/>
+                    <labelControl id="R02a_Label_05" label="Total"/>
+                    <separator id="R02a_Sep_01" visible="false"/> 
+                    <separator id="R02a_Sep_02" visible="false"/> 
+                    <labelControl id="R02a_Label_02" getLabel="Label_R02a_02_getText"/>      
+                    <labelControl id="R02a_Label_04" getLabel="Label_R02a_04_getText"/>    
+                    <labelControl id="R02a_Label_06" getLabel="Label_R02a_06_getText"/>    
+                </group>                    
+			</tab>
+			<tab id="R03" label="Débito Variável"     insertAfterMso="R02"     getVisible="Tab_R03_onTabSelected">
+                <group id="R03_Grupo_Volta" getLabel="Label_R03_Grupo_Volta_getText">
+                   <separator id="R03_Grupo_Volta_001" visible = "false"/> 
+                   <button id="button_R03_Volta" image="Volta" label="Volta" size="large"  onAction="button_R00_Volta_OnAction"/>  
+                   <separator id="R03_Grupo_Volta_002" visible = "false"/> 
+                </group> 			    
+ 				<group id="R03_Group_Mes" label="Período">
+ 				    <labelControl id="R03_Label_Periodo_0"/>   
+                    <box id="R03_Periodo" boxStyle="horizontal">
+                      <comboBox id="Combo_R03_Mes" 
+                                label="Mês" 
+                                sizeString="AAAAAAAAAAA" 
+                                getText="ComboBox_R03_Mes_getText"
+                                onChange="ComboBox_R03_Mes_OnChange"> 
+                        <item id="R03_M01" label="Janeiro" /> 
+                        <item id="R03_M02" label="Fevereiro" /> 
+                        <item id="R03_M03" label="Março" /> 
+                        <item id="R03_M04" label="Abril" /> 
+                        <item id="R03_M05" label="Maio" /> 
+                        <item id="R03_M06" label="Junho" /> 
+                        <item id="R03_M07" label="Julho" /> 
+                        <item id="R03_M08" label="Agosto" /> 
+                        <item id="R03_M09" label="Setembro" /> 
+                        <item id="R03_M10" label="Outubro" /> 
+                        <item id="R03_M11" label="Novembro" /> 
+                        <item id="R03_M12" label="Dezembro" /> 
+                        <item id="R03_M13" label="[Ano Inteiro]"/>
+                      </comboBox>  	
+                    </box>    	   
+                    <labelControl id="R03_Label_Periodo_1"/>        
+				</group>
+                <group id="R03_GroupSaldo" label="Saldo">
+                    <labelControl id="R03_Label_01" label="Saldo"/>
+                    <labelControl id="R03_Label_03" label="Pendênte"/>
+                    <labelControl id="R03_Label_05" label="Não Efetuado"/>
+                    <separator id="R03_Sep_01" visible="false"/> 
+                    <separator id="R03_Sep_02" visible="false"/> 
+                    <labelControl id="R03_Label_02" getLabel="Label_R03_02_getText"/>      
+                    <labelControl id="R03_Label_04" getLabel="Label_R03_04_getText"/>    
+                    <labelControl id="R03_Label_06" getLabel="Label_R03_06_getText"/>    
+                </group>
+                <group id="R03_GroupSQLite" label="Banco Dados"> 
+                    <separator id="R03_GroupSQLite_002" visible = "false"/>
+                    <separator id="R03_GroupSQLite_003" visible = "false"/>        
+                    <button id="button_R03_SQLite_Salva"   image="Salva" label="Salva" size="large"  onAction="button_R03_SQLite_Salva_OnAction"/>  
+                    <separator id="R03_GroupSQLite_004" visible = "false"/>
+                    <separator id="R03_GroupSQLite_005" visible="false"/> 
+                   <button id="button_R03_Atualiza" image="Atualiza" label="SDO" size="large" onAction="button_R03_Atualiza"/>                    
+                    <separator id="R03_GroupSQLite_006" visible = "false"/>
+                </group>	                    
+                <group id="R03a_GroupSaldo" label="Gastos">
+                    <labelControl id="R03a_Label_01" label="Fixo"/>
+                    <labelControl id="R03a_Label_03" label="Variável"/>
+                    <labelControl id="R03a_Label_05" label="Total"/>
+                    <separator id="R03a_Sep_01" visible="false"/> 
+                    <separator id="R03a_Sep_02" visible="false"/> 
+                    <labelControl id="R03a_Label_02" getLabel="Label_R03a_02_getText"/>      
+                    <labelControl id="R03a_Label_04" getLabel="Label_R03a_04_getText"/>    
+                    <labelControl id="R03a_Label_06" getLabel="Label_R03a_06_getText"/>    
+                </group>
+
+			</tab>
+
+			<tab id="R04" label="Débito Investimento" insertAfterMso="R03"     getVisible="Tab_R04_onTabSelected">
+                <group id="R04_Grupo_Volta" getLabel="Label_R04_Grupo_Volta_getText">
+                   <separator id="R04_Grupo_Volta_001" visible = "false"/> 
+                   <button id="button_R04_Volta" image="Volta" label="Volta" size="large"  onAction="button_R00_Volta_OnAction"/>  
+                   <separator id="R04_Grupo_Volta_002" visible = "false"/> 
+                </group> 			    
+ 				<group id="R04_Group_Mes" label="Período">
+ 				    <labelControl id="R04_Label_Periodo_0"/>   
+                    <box id="R04_Periodo" boxStyle="horizontal">
+                      <comboBox id="Combo_R04_Mes" 
+                                label="Mês" 
+                                sizeString="AAAAAAAAAAA" 
+                                getText="ComboBox_R04_Mes_getText"
+                                onChange="ComboBox_R04_Mes_OnChange"> 
+                        <item id="R04_M01" label="Janeiro" /> 
+                        <item id="R04_M02" label="Fevereiro" /> 
+                        <item id="R04_M03" label="Março" /> 
+                        <item id="R04_M04" label="Abril" /> 
+                        <item id="R04_M05" label="Maio" /> 
+                        <item id="R04_M06" label="Junho" /> 
+                        <item id="R04_M07" label="Julho" /> 
+                        <item id="R04_M08" label="Agosto" /> 
+                        <item id="R04_M09" label="Setembro" /> 
+                        <item id="R04_M10" label="Outubro" /> 
+                        <item id="R04_M11" label="Novembro" /> 
+                        <item id="R04_M12" label="Dezembro" /> 
+                        <item id="R04_M13" label="[Ano Inteiro]"/>
+                      </comboBox>  	
+                    </box>    	    
+                    <labelControl id="R04_Label_Periodo_1"/>   
+				</group>
+                <group id="R04_GroupSaldo" label="Saldo">
+                    <labelControl id="R04_Label_01" label="Saldo"/>
+                    <labelControl id="R04_Label_03" label="Pendênte"/>
+                    <labelControl id="R04_Label_05" label="Não Efetuado"/>
+                    <separator id="R04_Sep_01" visible="false"/> 
+                    <separator id="R04_Sep_02" visible="false"/> 
+                    <labelControl id="R04_Label_02" getLabel="Label_R04_02_getText"/>      
+                    <labelControl id="R04_Label_04" getLabel="Label_R04_04_getText"/>    
+                    <labelControl id="R04_Label_06" getLabel="Label_R04_06_getText"/> 
+                </group>
+                <group id="R04_GroupSQLite" label="Banco Dados"> 
+                    <separator id="R04_GroupSQLite_002" visible = "false"/>
+                    <separator id="R04_GroupSQLite_003" visible = "false"/>        
+                    <button id="button_R04_SQLite_Salva" image="Salva" label="Salva" size="large"  onAction="button_R04_SQLite_Salva_OnAction"/>  
+                    <separator id="R04_GroupSQLite_004" visible = "false"/>
+                    <separator id="R04_GroupSQLite_005" visible="false"/> 
+                    <button id="button_R04_Atualiza" image="Atualiza" label="SDO" size="large" onAction="button_R04_Atualiza"/>                    
+                    <separator id="R04_GroupSQLite_006" visible = "false"/>
+                </group>	                    
+			</tab>
+
+			<tab id="R05" label="Débito MC-CashBack"  insertAfterMso="R04"     getVisible="Tab_R05_onTabSelected">
+                <group id="R05_Grupo_Volta" getLabel="Label_R05_Grupo_Volta_getText"> 
+                   <separator id="R05_Grupo_Volta_001" visible = "false"/> 
+                   <button id="button_R05_Volta" image="Volta" label="Volta" size="large"  onAction="button_R00_Volta_OnAction"/>  
+                   <separator id="R05_Grupo_Volta_002" visible = "false"/> 
+                </group> 			    
+ 				<group id="R05_Group_Mes" label="Período">
+ 				    <labelControl id="R05_Label_Periodo_0"/>   
+                    <box id="R05_Periodo" boxStyle="horizontal">
+                      <comboBox id="Combo_R05_Mes" 
+                                label="Mês" 
+                                sizeString="AAAAAAAAAAA" 
+                                getText="ComboBox_R05_Mes_getText"
+                                onChange="ComboBox_R05_Mes_OnChange"> 
+                        <item id="R05_M01" label="Janeiro" /> 
+                        <item id="R05_M02" label="Fevereiro" /> 
+                        <item id="R05_M03" label="Março" /> 
+                        <item id="R05_M04" label="Abril" /> 
+                        <item id="R05_M05" label="Maio" /> 
+                        <item id="R05_M06" label="Junho" /> 
+                        <item id="R05_M07" label="Julho" /> 
+                        <item id="R05_M08" label="Agosto" /> 
+                        <item id="R05_M09" label="Setembro" /> 
+                        <item id="R05_M10" label="Outubro" /> 
+                        <item id="R05_M11" label="Novembro" /> 
+                        <item id="R05_M12" label="Dezembro" />
+                        <item id="R05_M13" label="[Ano Inteiro]"/>
+                      </comboBox>  	
+                    </box>    	    
+                    <labelControl id="R05_Label_Periodo_1"/>   
+				</group>
+                <group id="R05_GroupMC" label="Cartão 0250">
+                    <labelControl id="R05_MC_Label_01" label="Efetivo"/>
+                    <labelControl id="R05_MC_Label_03" label="Pendênte"/>
+                    <labelControl id="R05_MC_Label_05" label="Total"/>
+                    <separator id="R05_MC_Sep_01" visible="false"/> 
+                    <separator id="R05_MC_Sep_02" visible="false"/> 
+                    <labelControl id="R05_MC_Label_02" getLabel="Label_R05_MC_02_getText"/>      
+                    <labelControl id="R05_MC_Label_04" getLabel="Label_R05_MC_04_getText"/>    
+                    <labelControl id="R05_MC_Label_06" getLabel="Label_R05_MC_06_getText"/>    
+                      <dialogBoxLauncher> 
+                        <button id="R05_MC_Saldos"
+                                screentip="Valor Por cartões"
+                                onAction = "DialogBoxLauncher_R05_MC_Saldo_OnAction"/> 
+                      </dialogBoxLauncher>                         
+                </group>	
+                <group id="R05_GroupPT" label="Cartão 3196">
+                    <labelControl id="R05_PT_Label_01" label="Efetivo"/>
+                    <labelControl id="R05_PT_Label_03" label="Pendênte"/>
+                    <labelControl id="R05_PT_Label_05" label="Total"/>
+                    <separator id="R05_PT_Sep_01" visible="false"/> 
+                    <separator id="R05_PT_Sep_02" visible="false"/> 
+                    <labelControl id="R05_PT_Label_02" getLabel="Label_R05_PT_02_getText"/>      
+                    <labelControl id="R05_PT_Label_04" getLabel="Label_R05_PT_04_getText"/>    
+                    <labelControl id="R05_PT_Label_06" getLabel="Label_R05_PT_06_getText"/>    
+                      <dialogBoxLauncher> 
+                        <button id="R05_PT_Saldos"
+                                screentip="Valor Por cartões"
+                                onAction = "DialogBoxLauncher_R05_PT_Saldo_OnAction"/> 
+                      </dialogBoxLauncher>                         
+                </group>                    			    
+                <group id="R05_Group_DF_Saldo" label="Cartões">
+                    <labelControl id="R05_DF_Label_01" label="Cartão 0250"/>
+                    <labelControl id="R05_DF_Label_03" label="Cartão 3196"/>
+                    <labelControl id="R05_DF_Label_05" label="Total"/>
+                    <separator id="R05_DF_Sep_01" visible="false"/> 
+                    <separator id="R05_DF_Sep_02" visible="false"/> 
+                    <labelControl id="R05_DF_Label_02" getLabel="Label_R05_DF_02_getText"/>      
+                    <labelControl id="R05_DF_Label_04" getLabel="Label_R05_DF_04_getText"/>    
+                    <labelControl id="R05_DF_Label_06" getLabel="Label_R05_DF_06_getText"/>    
+                </group>
+                <group id="R05_GroupSaldo" label="Gastos">
+                    <labelControl id="R05_Label_01" label="Fixo"/>
+                    <labelControl id="R05_Label_03" label="Variável"/>
+                    <labelControl id="R05_Label_05" label="Total"/>
+                    <separator id="R05_Sep_01" visible="false"/> 
+                    <separator id="R05_Sep_02" visible="false"/> 
+                    <labelControl id="R05_Label_02" getLabel="Label_R05_02_getText"/>      
+                    <labelControl id="R05_Label_04" getLabel="Label_R05_04_getText"/>    
+                    <labelControl id="R05_Label_06" getLabel="Label_R05_06_getText"/>    
+                </group>
+                <group id="R05_GroupSQLite" label="Banco Dados"> 
+                    <separator id="R05_GroupSQLite_002" visible = "false"/>
+                    <separator id="R05_GroupSQLite_003" visible = "false"/>        
+                    <button id="button_R05_SQLite_Salva" image="Salva" label="Salva" size="large"  onAction="button_R05_SQLite_Salva_OnAction"/>  
+                    <separator id="R05_GroupSQLite_004" visible = "false"/>
+                    <separator id="R05_GroupSQLite_005" visible="false"/> 
+                   <button id="button_R05_Atualiza" image="Atualiza" label="SDO" size="large" onAction="button_R05_Atualiza"/>                    
+                    <separator id="R05_GroupSQLite_006" visible = "false"/>
+                </group>	                      
+                <group id="R05_Grupo_Calc"> 
+                   <button id="button_R05_Calc" image="Calc" label="Calculadora" size="large"  onAction="button_R05_Calc_OnAction"/>  
+                </group>                                        
+			</tab>
+
+			<tab id="R06" label="Débito MC/Visa"      insertAfterMso="R05"     getVisible="Tab_R06_onTabSelected">
+                <group id="R06_Grupo_Volta" getLabel="Label_R06_Grupo_Volta_getText"> 
+                   <separator id="R06_Grupo_Volta_001" visible = "false"/> 
+                   <button id="button_R06_Volta" image="Volta" label="Volta" size="large"  onAction="button_R00_Volta_OnAction"/>  
+                   <separator id="R06_Grupo_Volta_002" visible = "false"/> 
+                </group> 			    
+ 				<group id="R06_Group_Mes" label="Período">
+ 				    <labelControl id="R06_Label_Periodo_0"/> 
+                    <box id="R06_Periodo" boxStyle="horizontal">
+                      <comboBox id="Combo_R06_Mes" 
+                                label="Mês" 
+                                sizeString="AAAAAAAAAAA" 
+                                getText="ComboBox_R06_Mes_getText"
+                                onChange="ComboBox_R06_Mes_OnChange"> 
+                        <item id="R06_M01" label="Janeiro" /> 
+                        <item id="R06_M02" label="Fevereiro" /> 
+                        <item id="R06_M03" label="Março" /> 
+                        <item id="R06_M04" label="Abril" /> 
+                        <item id="R06_M05" label="Maio" /> 
+                        <item id="R06_M06" label="Junho" /> 
+                        <item id="R06_M07" label="Julho" /> 
+                        <item id="R06_M08" label="Agosto" /> 
+                        <item id="R06_M09" label="Setembro" /> 
+                        <item id="R06_M10" label="Outubro" /> 
+                        <item id="R06_M11" label="Novembro" /> 
+                        <item id="R06_M12" label="Dezembro" /> 
+                        <item id="R06_M13" label="[Ano Inteiro]"/>
+                      </comboBox>  	
+                    </box>    	    
+                    <labelControl id="R06_Label_Periodo_1"/> 
+				</group>
+                <group id="R06_GroupVISA" label="VISA">
+                    <labelControl id="R06_VS_Label_01" label="Saldo"/>
+                    <labelControl id="R06_VS_Label_03" label="Pendênte"/>
+                    <labelControl id="R06_VS_Label_05" label="Não Efetuado"/>
+                    <separator id="R06_VS_Sep_01" visible="false"/> 
+                    <separator id="R06_VS_Sep_02" visible="false"/> 
+                    <labelControl id="R06_VS_Label_02" getLabel="Label_R06_VS_02_getText"/>      
+                    <labelControl id="R06_VS_Label_04" getLabel="Label_R06_VS_04_getText"/>    
+                    <labelControl id="R06_VS_Label_06" getLabel="Label_R06_VS_06_getText"/> 
+                </group>
+                <group id="R06_GroupMC" label="Master Card">
+                    <labelControl id="R06_MC_Label_01" label="Saldo"/>
+                    <labelControl id="R06_MC_Label_03" label="Pendênte"/>
+                    <labelControl id="R06_MC_Label_05" label="Não Efetuado"/>
+                    <separator id="R06_MC_Sep_01" visible="false"/> 
+                    <separator id="R06_MC_Sep_02" visible="false"/> 
+                    <labelControl id="R06_MC_Label_02" getLabel="Label_R06_MC_02_getText"/>      
+                    <labelControl id="R06_MC_Label_04" getLabel="Label_R06_MC_04_getText"/>    
+                    <labelControl id="R06_MC_Label_06" getLabel="Label_R06_MC_06_getText"/> 
+                </group>
+                <group id="R06_GroupSaldo" label="Saldo">
+                    <labelControl id="R06_Label_01" label="Saldo"/>
+                    <labelControl id="R06_Label_03" label="Pendênte"/>
+                    <labelControl id="R06_Label_05" label="Não Efetuado"/>
+                    <separator id="R06_Sep_01" visible="false"/> 
+                    <separator id="R06_Sep_02" visible="false"/> 
+                    <labelControl id="R06_Label_02" getLabel="Label_R06_02_getText"/>      
+                    <labelControl id="R06_Label_04" getLabel="Label_R06_04_getText"/>    
+                    <labelControl id="R06_Label_06" getLabel="Label_R06_06_getText"/> 
+                </group>
+                <group id="R06_GroupSQLite" label="Banco Dados"> 
+                    <separator id="R06_GroupSQLite_002" visible = "false"/>
+                    <separator id="R06_GroupSQLite_003" visible = "false"/>        
+                    <button id="button_R06_SQLite_Salva" image="Salva" label="Salva" size="large"  onAction="button_R06_SQLite_Salva_OnAction"/>  
+                    <separator id="R06_GroupSQLite_004" visible = "false"/>
+                    <separator id="R06_GroupSQLite_005" visible="false"/> 
+                    <button id="button_R06_Atualiza" image="Atualiza" label="SDO" size="large" onAction="button_R06_Atualiza"/>                    
+                    <separator id="R06_GroupSQLite_006" visible = "false"/>
+                </group>
+                <group id="R06_Grupo_Calc"> 
+                   <button id="button_R06_Calc" image="Calc" label="Calculadora" size="large"  onAction="button_R06_Calc_OnAction"/>  
+                </group>                        
+			</tab>
+
+			<tab id="R07" label="Investimento"        insertAfterMso="R06"     getVisible="Tab_R07_onTabSelected">
+                <group id="R07_Grupo_Volta" getLabel="Label_R06_Grupo_Volta_getText"> 
+                   <separator id="R07_Grupo_Volta_001" visible = "false"/> 
+                   <button id="button_R07_Volta" image="Volta" label="Volta" size="large"  onAction="button_R00_Volta_OnAction"/>  
+                   <separator id="R07_Grupo_Volta_002" visible = "false"/> 
+                </group> 
+ 				<group id="R07_Group_Mes" label="Período">
+ 				    <labelControl id="R07_Label_Periodo_0"/> 
+                    <box id="R07_Periodo" boxStyle="horizontal">
+                      <comboBox id="Combo_R07_Mes" 
+                                label="Mês" 
+                                sizeString="AAAAAAAAAAA" 
+                                getText="ComboBox_R07_Mes_getText"
+                                onChange="ComboBox_R07_Mes_OnChange"> 
+                        <item id="R07_M01" label="Janeiro" /> 
+                        <item id="R07_M02" label="Fevereiro" /> 
+                        <item id="R07_M03" label="Março" /> 
+                        <item id="R07_M04" label="Abril" /> 
+                        <item id="R07_M05" label="Maio" /> 
+                        <item id="R07_M06" label="Junho" /> 
+                        <item id="R07_M07" label="Julho" /> 
+                        <item id="R07_M08" label="Agosto" /> 
+                        <item id="R07_M09" label="Setembro" /> 
+                        <item id="R07_M10" label="Outubro" /> 
+                        <item id="R07_M11" label="Novembro" /> 
+                        <item id="R07_M12" label="Dezembro" /> 
+                      </comboBox>  	
+                    </box>    	    
+                    <labelControl id="R07_Label_Periodo_1"/> 
+				</group>                    			       
+                <group id="R07_Grupo_Refresh"> 
+                   <separator id="R07_Grupo_Refresh_002" visible = "false"/> 
+                   <button id="button_R07_Refresh" image="Atualiza" label="Refresh" size="large"  onAction="button_R07_Refresh_OnAction"/>  
+                   <separator id="R07_Grupo_Refresh_003" visible = "false"/> 
+                </group> 	
+                <group id="R07_Group_Teste"> 
+                  <separator id="R07_Sep_A1" visible="false"/> 
+                  <separator id="R07_Sep_A2" visible="false"/> 
+                  <button id="button_PP"  image="PP" label="PicPay"       screentip="Oportunidade"  size="large" onAction="button_R07_PP_OnAction"/>  
+                  <separator id="R07_Sep_A3" visible="false"/> 
+                  <separator id="R07_Sep_A4" visible="false"/> 
+                  <button id="button_IP"  image="IP" label="Personalitté" screentip="Investimentos" size="large" onAction="button_R07_IP_OnAction"/> 
+                  <separator id="R07_Sep_A5" visible="false"/> 
+                  <separator id="R07_Sep_A6" visible="false"/>             
+                </group>
+		       
+ 			</tab>
+
+		    <tab id="R08" label="PicPay"              insertAfterMso="R07"     getVisible="Tab_R08_onTabSelected">
+                <group id="R08_Grupo_Volta" getLabel="Label_R08_Grupo_Volta_getText"> 
+                   <separator id="R08_Grupo_Volta_001" visible = "false"/> 
+                   <button id="button_R08_Volta" image="Volta" label="Volta" size="large"  onAction="button_R07_Volta_OnAction"/>  
+                   <separator id="R08_Grupo_Volta_002" visible = "false"/> 
+                </group> 			    
+ 				<group id="R08_Group_Mes" label="Período">
+ 				    <labelControl id="R08_Label_Periodo_0"/> 
+                    <box id="R08_Periodo" boxStyle="vertical">
+                      <comboBox id="Combo_R08_Mes" 
+                                label="Mês" 
+                                sizeString="AAAAAAAAAAA" 
+                                getText="ComboBox_R08_Mes_getText"
+                                onChange="ComboBox_R08_Mes_OnChange"> 
+                        <item id="R08_M01" label="Janeiro" /> 
+                        <item id="R08_M02" label="Fevereiro" /> 
+                        <item id="R08_M03" label="Março" /> 
+                        <item id="R08_M04" label="Abril" /> 
+                        <item id="R08_M05" label="Maio" /> 
+                        <item id="R08_M06" label="Junho" /> 
+                        <item id="R08_M07" label="Julho" /> 
+                        <item id="R08_M08" label="Agosto" /> 
+                        <item id="R08_M09" label="Setembro" /> 
+                        <item id="R08_M10" label="Outubro" /> 
+                        <item id="R08_M11" label="Novembro" /> 
+                        <item id="R08_M12" label="Dezembro" /> 
+                        <item id="R08_M13" label="[Ano Inteiro]"/>
+                      </comboBox>  	
+                      <comboBox id="Combo_R08_Caixinha" 
+                                label="Caixinha" 
+                                sizeString="AAAAAAAAAAA" 
+                                getText="ComboBox_R08_Caixinha_getText"
+                                onChange="ComboBox_R08_Caixinha_OnChange"> 
+                        <item id="R08_C01" label="Principal" /> 
+                        <item id="R08_C02" label="Caixinha [Impar]" /> 
+                        <item id="R08_C03" label="Caixinha [Par]" /> 
+                        <item id="R08_C04" label="Caixinha [Salario]" /> 
+                        <item id="R08_C05" label="[Modelo]" />
+                      </comboBox>  	
+                    </box>    	    
+                    <labelControl id="R08_Label_Periodo_3"/>                     
+				</group>
+                <group id="R08_GroupCAIXA" label="Caixinhas">
+                    <labelControl id="R08_CX_Label_01" label="Caixinha [Impar]"/>
+                    <labelControl id="R08_CX_Label_03" label="Caixinha [Par]"/>
+                    <labelControl id="R08_CX_Label_05" label="Caixinha [Salario]"/>
+                    <separator id="R08_CX_Sep_01" visible="false"/> 
+                    <separator id="R08_CX_Sep_02" visible="false"/> 
+                    <labelControl id="R08_CX_Label_02" getLabel="Label_R08_CX_02_getText"/>      
+                    <labelControl id="R08_CX_Label_04" getLabel="Label_R08_CX_04_getText"/>    
+                    <labelControl id="R08_CX_Label_06" getLabel="Label_R08_CX_06_getText"/> 
+                    <separator id="R08_CX_Sep_03" visible="false"/> 
+                    <separator id="R08_CX_Sep_04" visible="false"/> 
+                    <labelControl id="R08_CX_Label_08" getLabel="Label_R08_CX_08_getText"/>      
+                    <labelControl id="R08_CX_Label_10" getLabel="Label_R08_CX_10_getText"/>    
+                    <labelControl id="R08_CX_Label_12" getLabel="Label_R08_CX_12_getText"/> 
+                      <dialogBoxLauncher> 
+                        <button id="R08_BX_Juros" 
+                                screentip="Calcular Juros" 
+                                onAction = "DialogBoxLauncher_R08_BX_Juros_OnAction"/> 
+                      </dialogBoxLauncher>                       
+                </group>
+                <group id="R08_GroupPR" label="Principal">
+                    <separator id="R08_PR_Sep_01" visible="false"/> 
+                    <labelControl id="R08_PR_Label_02" />   
+                    <labelControl id="R08_PR_Label_04" getLabel="Label_R08_PR_04_getText"/>      
+                    <labelControl id="R08_PR_Label_06" />   
+                    <separator id="R08_PR_Sep_02" visible="false"/> 
+                </group>
+                <group id="R08_GroupTO" label="Total">
+                    <separator id="R08_TO_Sep_01" visible="false"/> 
+                    <labelControl id="R08_TO_Label_02" />   
+                    <labelControl id="R08_TO_Label_04" getLabel="Label_R08_TO_04_getText"/>      
+                    <labelControl id="R08_TO_Label_06" />   
+                    <separator id="R08_TO_Sep_02" visible="false"/> 
+                </group>                    
+                <group id="R08_GroupSQLite" label="Banco Dados"> 
+                    <separator id="R08_GroupSQLite_002" visible = "false"/>
+                    <separator id="R08_GroupSQLite_003" visible = "false"/>        
+                    <button id="button_R08_SQLite_Salva" image="Salva" label="Salva" size="large"  onAction="button_R08_SQLite_Salva_OnAction"/>  
+                    <separator id="R08_GroupSQLite_004" visible = "false"/>
+                    <separator id="R08_GroupSQLite_005" visible="false"/> 
+                    <button id="button_R08_Atualiza" image="Atualiza" label="SDO" size="large" onAction="button_R08_Atualiza"/>                    
+                    <separator id="R08_GroupSQLite_006" visible = "false"/>
+                </group>
+			</tab>
+			    
+		    <tab id="R09" label="Personalitte"        insertAfterMso="R08"     getVisible="Tab_R09_onTabSelected">
+                <group id="R09_Grupo_Volta" getLabel="Label_R09_Grupo_Volta_getText"> 
+                   <separator id="R09_Grupo_Volta_001" visible = "false"/> 
+                   <button id="button_R09_Volta" image="Volta" label="Volta" size="large"  onAction="button_R07_Volta_OnAction"/>  
+                   <separator id="R09_Grupo_Volta_002" visible = "false"/> 
+                </group> 			    
+                <group id="R09_Group_Investimento" label="Investimento">
+                <labelControl id="R09_Label_Investimento_0"/> 
+                <box id="R09_Investimento" boxStyle="vertical">
+                   <labelControl id="R09_Label_Investimento_1"/> 
+                  <comboBox id="Combo_R09_Investimento" 
+                            label="Investimento" 
+                            sizeString="AAAAAAAAAAAAAAAAAAAAA" 
+                            getText="ComboBox_R09_Investimento_getText"
+                            onChange="ComboBox_R09_Investimento_OnChange"> 
+                    <item id="R09_M01" label="Renda Fixa     - CDB/LCI/LCA" /> 
+                    <item id="R09_M02" label="Renda Fixa     - Fundo Investimento" /> 
+                    <item id="R09_M03" label="Renda Fixa     - Fundo de Garantia" /> 
+                    <item id="R09_M04" label="Renda Variável - FIIs" /> 
+                    <item id="R09_M05" label="Renda Variável - Ações" /> 
+                  </comboBox>  	
+                </box>    	    
+                <labelControl id="R09_Label_Periodo_2"/>                     
+                </group>
+                <group id="R09_LimpaExtrato" label="Extrato"> 
+                    <separator id="R09_LimpaExtrato_002" visible = "false"/>
+                    <button id="button_R09_LimpaExtrato" image="Run" size="large"  onAction="button_R09_LimpaExtrato_OnAction"/>  
+                    <separator id="R09_LimpaExtrato_005" visible = "false"/>
+                </group>
+                <group id="R09_GroupSQLite" label="Banco Dados"> 
+                    <separator id="R09_GroupSQLite_002" visible = "false"/>
+                    <separator id="R09_GroupSQLite_003" visible = "false"/>        
+                    <button id="button_R09_SQLite_Salva" image="Salva" label="Salva" size="large"  onAction="button_R09_SQLite_Salva_OnAction"/>  
+                    <separator id="R09_GroupSQLite_004" visible = "false"/>
+                    <separator id="R09_GroupSQLite_005" visible="false"/> 
+                      <button id="button_R09_Atualiza" image="Atualiza" label="SDO" size="large" onAction="button_R09_Atualiza"/>                    
+                    <separator id="R09_GroupSQLite_006" visible = "false"/>
+                </group>
+			</tab>
+
+		    <tab id="R10" label="LimpaExtrato"        insertAfterMso="R09"     getVisible="Tab_R10_onTabSelected">
+                <group id="R10_Grupo_Volta" getLabel="Label_R10_Grupo_Volta_getText"> 
+                   <separator id="R10_Grupo_Volta_001" visible = "false"/> 
+                   <button id="button_R10_Volta" image="Volta" label="Volta" size="large"  onAction="button_R10_Volta_OnAction"/>  
+                   <separator id="R10_Grupo_Volta_002" visible = "false"/> 
+                </group> 			    
+                <group id="R10_RodaRotina" label="Ferramentas"> 
+                    <separator id="R10_RodaRotina_001" visible = "false"/>
+                    <button id="button_R10_Limpa" image="Limpa" size="large"  onAction="button_R10_Limpa_OnAction"/>  
+                    <separator id="R10_RodaRotina_002" visible = "false"/>        
+                    <button id="button_R10_RodaRotina" image="Run" size="large"  onAction="button_R10_RodaRotina_OnAction"/>  
+                    <separator id="R10_RodaRotina_003" visible = "false"/>
+                </group>                    
+                <group id="R10_GroupSQLite" label="Banco Dados"> 
+                    <separator id="R10_GroupSQLite_002" visible = "false"/>
+                    <separator id="R10_GroupSQLite_003" visible = "false"/>        
+                    <button id="button_R10_SQLite_Salva" image="Salva" label="Salva" size="large"  onAction="button_R10_SQLite_Salva_OnAction"/>  
+                    <separator id="R10_GroupSQLite_004" visible = "false"/>
+                </group>                    
+            </tab>
+
+			<tab id="A00" label="Aplicacao"           insertAfterMso="R10"     getVisible="Tab_A00_onTabSelected">
+                <group id="A00_Grupo_Volta" getLabel="Label_A00_Grupo_Volta_getText"> 
+                    <separator id="A00_Grupo_Volta_001" visible = "false"/>
+                    <button id="button_A00_Volta" image="Volta" label="Volta" size="large" onAction="button_R00_Volta_OnAction"/>  
+                    <separator id="A00_Grupo_Volta_002" visible = "false"/>
+                </group> 	
+                <group id="A00_Group_TK" label="Tickers">      
+                  <separator id="A00_TK_A01" visible="false"/> 
+                  <button id="button_A00_AC" image="Acao" label="Ações" screentip="Açoes"               size="large"  onAction="button_A00_AC_OnAction"/>
+                  <separator id="A00_TK_A02" visible="false"/>    
+                  <button id="button_A00_FI" image="FIIs" label="FIIs" screentip="Fundos Imobiliários"  size="large"  onAction="button_A00_FI_OnAction"/>
+                  <separator id="A00_TK_A03" visible="false"/> 
+                  <button id="button_A00_AG" image="FIA" label="FIAGRO" screentip="FIAGRO"              size="large"  onAction="button_A00_AG_OnAction"/>
+                  <separator id="A00_TK_A04" visible="false"/> 
+                  <separator id="A00_TK_A05" visible="true"/> 
+                  <separator id="A00_TK_A06" visible="false"/> 
+                  <button id="button_A00_Atualiza" image="Atualiza" label="Atualiza" screentip="Atualiza"  size="large"  onAction="button_A00_Atualiza_OnAction"/>
+                  <separator id="A00_TK_A07" visible="false"/>  
+                  <button id="button_A00_Salva"    image="Salva"    label="Salva"    screentip="Salva"     size="large"  onAction="button_A00_Salva_OnAction"/>
+                  <separator id="A00_TK_A08" visible="false"/> 
+                 </group>
+                <group id="A00_Group_MV" label="Aporte"> 
+                  <separator id="A00_MV_A1" visible="false"/> 
+                  <button id="button_MV" image="Buy" label="AP" screentip="Aporte" size="large"  onAction="button_MV_OnAction"/>  
+                  <button id="button_RD" image="CR" label="RD" screentip="Rendimento" size="large"  onAction="button_RD_OnAction"/>                    
+                  <separator id="A00_MV_A2" visible="false"/> 
+                  <dialogBoxLauncher> 
+                    <button id="A00_BX_Saldo" 
+                            screentip="Planejamento" 
+                            onAction = "DialogBoxLauncher_A02_Planejamento_OnAction"/> 
+                  </dialogBoxLauncher>                     
+                </group>                    
+                <group id="A00_Group_CV" label="Movimento"> 
+                  <separator id="A00_CV_A1" visible="false"/> 
+                  <button id="button_CV" image="TK" label="CV" screentip="Compra/Venda" size="large"  onAction="button_CV_OnAction"/>  
+                  <separator id="A00_CV_A2" visible="false"/> 
+                </group>
+                <group id="A00_Group_ES"> 
+                    <button id="button_ES_E01" size="large"  enabled="false"/>
+                </group>
+                <group id="A00_GroupAberto" label="Aberto">
+                    <separator    id="A00_AB_A1" visible="false"/> 
+                    <labelControl id="A00_Label_01" label="Ações"/>
+                    <labelControl id="A00_Label_03" label="FIIs"/>
+                    <labelControl id="A00_Label_05" label="FIAgro"/>
+                    <separator id="A00_Sep_01" visible="false"/> 
+                    <separator id="A00_Sep_02" visible="false"/> 
+                    <labelControl id="A00_Label_02" getLabel="Label_A00_02_getText"/>      
+                    <labelControl id="A00_Label_04" getLabel="Label_A00_04_getText"/>    
+                    <labelControl id="A00_Label_06" getLabel="Label_A00_06_getText"/>   
+                    <separator    id="A00_AB_A2" visible="false"/> 
+                </group>	
+                <group id="A00_GroupConfirmado" label="Confirmado">
+                    <separator    id="A00_AB_A3" visible="false"/> 
+                    <labelControl id="A00_Label_07" label="Ações"/>
+                    <labelControl id="A00_Label_09" label="FIIs"/>
+                    <labelControl id="A00_Label_11" label="FIAgro"/>
+                    <separator id="A00_Sep_03" visible="false"/> 
+                    <separator id="A00_Sep_04" visible="false"/> 
+                    <labelControl id="A00_Label_08" getLabel="Label_A00_08_getText"/>      
+                    <labelControl id="A00_Label_10" getLabel="Label_A00_10_getText"/>    
+                    <labelControl id="A00_Label_12" getLabel="Label_A00_12_getText"/>   
+                    <separator    id="A00_AB_A4" visible="false"/> 
+                </group>		
+                <group id="A00_GroupTotal" label="Total">
+                    <separator    id="A00_AB_A5" visible="false"/> 
+                    <labelControl id="A00_Label_13" label="Ações"/>
+                    <labelControl id="A00_Label_15" label="FIIs+FIAGRO"/>
+                    <labelControl id="A00_Label_17" label="TOTAL"/>
+                    <separator id="A00_Sep_05" visible="false"/> 
+                    <separator id="A00_Sep_06" visible="false"/> 
+                    <labelControl id="A00_Label_14" getLabel="Label_A00_14_getText"/>      
+                    <labelControl id="A00_Label_16" getLabel="Label_A00_16_getText"/>    
+                    <labelControl id="A00_Label_18" getLabel="Label_A00_18_getText"/>   
+                    <separator    id="A00_AB_A6" visible="false"/> 
+                </group>
+	
+			</tab>
+			<tab id="A01" label="Movimento"           insertAfterMso="A00"     getVisible="Tab_A01_onTabSelected">
+                <group id="A01_Grupo_Volta" getLabel="Label_A01_Grupo_Volta_getText"> 
+                    <separator id="A01_VT_A1" visible="false"/> 
+                    <separator id="A01_VT_A2" visible="false"/>  
+                    <button id="button_A01_Volta" image="Volta" label="Volta" size="large" onAction="button_A00_Retorna_OnAction"/>  
+                    <separator id="A01_VT_A3" visible="false"/> 
+                    <separator id="A01_VT_A4" visible="false"/>  
+                </group>
+                <group id="A01_Group_TK" label="Tickers">      
+                  <separator id="A01_TK_A1" visible="false"/> 
+                  <button id="button_A01_AC" image="Acao" label="Ações" screentip="Açoes"               size="large"  onAction="button_A01_AC_OnAction"/>
+                  <separator id="A01_TK_A2" visible="false"/>    
+                  <separator id="A01_TK_A3" visible="false"/> 
+                  <button id="button_A01_FI" image="FIIs" label="FIIs" screentip="Fundos Imobiliários"  size="large"  onAction="button_A01_FI_OnAction"/>
+                  <separator id="A01_TK_A4" visible="false"/> 
+                  <separator id="A01_TK_A5" visible="false"/> 
+                  <button id="button_A01_AG" image="FIA" label="FIAGRO" screentip="FIAGRO"              size="large"  onAction="button_A01_AG_OnAction"/>
+                  <separator id="A01_TK_A6" visible="false"/> 
+                 </group>
+                 <group id="A01_Group_CV" label="Salvar"> 
+                   <separator id="A01_CV_A1" visible="false"/> 
+                   <button id="button_CV_A01" image="Save" label="CV" screentip="Salvar" size="large" onAction="button_SV_A01_OnAction"/>  
+                   <separator id="A01_CV_A2" visible="false"/> 
+                 </group>                     
+                <group id="A01_GroupPT" label="Preço">
+                    <labelControl id="A01_PT_C01" label="Quantidade"/>
+                    <labelControl id="A01_PT_C03" label="Preço"/>
+                    <labelControl id="A01_PT_C05" label="Preço Médio"/>
+                    <separator id="A01_PT_Sep_01" visible="false"/> 
+                    <separator id="A01_PT_Sep_02" visible="false"/> 
+                    <labelControl id="A01_PT_C02" getLabel="Label_A01_PT_02_getText"/>      
+                    <labelControl id="A01_PT_C04" getLabel="Label_A01_PT_04_getText"/>    
+                    <labelControl id="A01_PT_C06" getLabel="Label_A01_PT_06_getText"/>    
+                </group>    
+                <group id="A01_GroupPM" label="Patrimonio">
+                    <labelControl id="A01_PM_D01" label="Investido"/>
+                    <labelControl id="A01_PM_D03" label="Patrimonio"/>
+                    <labelControl id="A01_PM_D05" label="Rendimento"/>
+                    <separator id="A01_PM_Sep_01" visible="false"/> 
+                    <separator id="A01_PM_Sep_02" visible="false"/> 
+                    <labelControl id="A01_PM_D02" getLabel="Label_A01_PM_02_getText"/>      
+                    <labelControl id="A01_PM_D04" getLabel="Label_A01_PM_04_getText"/>    
+                    <labelControl id="A01_PM_D06" getLabel="Label_A01_PM_06_getText"/>    
+                </group>                                     	
+
+			</tab>
+			<tab id="A02" label="Aporte"              insertAfterMso="A01"     getVisible="Tab_A02_onTabSelected">
+                <group id="A02_Grupo_Volta" getLabel="Label_A02_Grupo_Volta_getText"> 
+                    <separator id="A02_VT_A1" visible="false"/> 
+                    <separator id="A02_VT_A2" visible="false"/>  
+                    <button id="button_A02_Volta" image="Volta" label="Volta" size="large" onAction="button_A00_Retorna_OnAction"/>  
+                    <separator id="A02_VT_A3" visible="false"/> 
+                    <separator id="A02_VT_A4" visible="false"/>  
+                </group>
+                <group id="A02_Group_TK" label="Tickers">      
+                  <separator id="A02_TK_A1" visible="false"/> 
+                  <button id="button_A02_AC" image="Acao" label="Ações" screentip="Açoes"               size="normal"  onAction="button_A02_AC_OnAction"/>
+                  <button id="button_A02_FI" image="FIIs" label="FIIs" screentip="Fundos Imobiliários"  size="normal"  onAction="button_A02_FI_OnAction"/>
+                  <button id="button_A02_AG" image="FIA" label="FIAGRO" screentip="FIAGRO"              size="normal"  onAction="button_A02_AG_OnAction"/>
+                  <separator id="A02_TK_A6" visible="false"/> 
+                 </group>
+                <group id="A02_GroupMes" label="Período">
+                    <separator id="A02_Sep_01" visible="false"/> 
+                    <labelControl id="A02_Label_Periodo_0"/> 
+                    <box id="A02_Periodo" boxStyle="horizontal">
+                        <comboBox id="Combo_A02_Mes" 
+                            label="Mês" 
+                            image="Calen"
+                            sizeString="AAAAAAAAAAA" 
+                            getText="ComboBox_A02_Mes_getText"
+                            onChange="ComboBox_A02_Mes_OnChange"> 
+                            <item id="A02_A02_M01" label="Janeiro"/> 
+                            <item id="A02_A02_M02" label="Fevereiro"/> 
+                            <item id="A02_A02_M03" label="Março"/> 
+                            <item id="A02_A02_M04" label="Abril"/> 
+                            <item id="A02_A02_M05" label="Maio"/> 
+                            <item id="A02_A02_M06" label="Junho"/> 
+                            <item id="A02_A02_M07" label="Julho"/> 
+                            <item id="A02_A02_M08" label="Agosto"/> 
+                            <item id="A02_A02_M09" label="Setembro"/> 
+                            <item id="A02_A02_M10" label="Outubro"/> 
+                            <item id="A02_A02_M11" label="Novembro"/> 
+                            <item id="A02_A02_M12" label="Dezembro"/> 
+                        </comboBox>  	
+                    </box>
+                    <labelControl id="A02_Label_Periodo_1"/>         
+                    <separator id="A02_Sep_02" visible="false"/>     
+                </group>
+                <group id="A02_Grupo_Refresh" label="Atualiza">
+                    <separator id="A02_RF_A1" visible="false"/> 
+                    <button id="button_A02_Refresh"   image="Atualiza"  label="Refresh"   size="normal" onAction="button_A02_Refresh_OnAction"/>  
+                    <button id="button_A02_Save"      image="Save"      label="Salva"     size="normal" onAction="button_A02_Save_OnAction"/>  
+                    <button id="button_A02_Escritura" image="Escritura" label="Registrar" size="normal" onAction="button_A02_Escritura_OnAction"/>                      
+                    <separator id="A02_RF_A2" visible="false"/>  
+                </group>                                         
+                <group id="A02_GroupIN" label="Planejado">
+                    <labelControl id="A02_IN_C01" label="Ações"/>
+                    <labelControl id="A02_IN_C03" label="FIIs"/>
+                    <labelControl id="A02_IN_C05" label="FIAgro"/>
+                    <separator id="A02_IN_Sep_01" visible="false"/> 
+                    <separator id="A02_IN_Sep_02" visible="false"/> 
+                    <labelControl id="A02_IN_C02" getLabel="Label_A02_IN_02_getText"/>      
+                    <labelControl id="A02_IN_C04" getLabel="Label_A02_IN_04_getText"/>    
+                    <labelControl id="A02_IN_C06" getLabel="Label_A02_IN_06_getText"/>    
+                      <dialogBoxLauncher> 
+                        <button id="A02_BX_Saldo" 
+                                screentip="Planejamento" 
+                                onAction = "DialogBoxLauncher_A02_Planejamento_OnAction"/> 
+                      </dialogBoxLauncher>      
+                </group>    
+                <!--group id="A02_GroupPL" label="Patrimonio">
+                    <labelControl id="A02_PL_D01" label="Planejado"/>
+                    <labelControl id="A02_PL_D03" label="Investido"/>
+                    <labelControl id="A02_PL_D05" label="Total"/>
+                    <separator id="A02_PL_Sep_01" visible="false"/> 
+                    <separator id="A02_PL_Sep_02" visible="false"/> 
+                    <labelControl id="A02_PL_D02" getLabel="Label_A02_PL_02_getText"/>      
+                    <labelControl id="A02_PL_D04" getLabel="Label_A02_PL_04_getText"/>    
+                    <labelControl id="A02_PL_D06" getLabel="Label_A02_PL_06_getText"/>    
+                </group-->                                     	
+                <group id="A02_GroupDT" label="Datas">
+                    <labelControl id="A02_DT_D01" label="Final Mes"/>
+                    <labelControl id="A02_DT_D03" label="Salario"/>
+                    <labelControl id="A02_DT_D05" label="Total"/>
+                    <separator id="A02_DT_Sep_01" visible="false"/> 
+                    <separator id="A02_DT_Sep_02" visible="false"/> 
+                    <labelControl id="A02_DT_D02" getLabel="Label_A02_DT_02_getText"/>      
+                    <labelControl id="A02_DT_D04" getLabel="Label_A02_DT_04_getText"/>    
+                    <labelControl id="A02_DT_D06" getLabel="Label_A02_DT_06_getText"/>    
+                </group>   
+                <group id="A02_GroupPK" label="Saldos">
+                    <labelControl id="A02_PK_D01" getLabel="Label_A02_PickPay_getText"/>
+                    <labelControl id="A02_PK_D03" label="Investido"/>
+                    <labelControl id="A02_PK_D05" label="Saldo"/>
+                    <separator id="A02_PK_Sep_01" visible="false"/> 
+                    <separator id="A02_PK_Sep_02" visible="false"/> 
+                    <labelControl id="A02_PK_D02" getLabel="Label_A02_PK_02_getText"/>      
+                    <labelControl id="A02_PK_D04" getLabel="Label_A02_PK_04_getText"/>    
+                    <labelControl id="A02_PK_D06" getLabel="Label_A02_PK_06_getText"/>    
+                </group>
+                <group id="A02_GroupSB" label="Outros">
+                    <labelControl id="A02_SB_D01" label="Subscrição"/>
+                    <labelControl id="A02_SB_D03" label=" "/>
+                    <labelControl id="A02_SB_D05" label="Aberto"/>
+                    <separator id="A02_SB_Sep_01" visible="false"/> 
+                    <separator id="A02_SB_Sep_02" visible="false"/> 
+                    <labelControl id="A02_SB_D02" getLabel="Label_A02_SB_02_getText"/>      
+                    <labelControl id="A02_SB_D04" label=" "/>    
+                    <labelControl id="A02_SB_D06" getLabel="Label_A02_SB_06_getText"/>    
+                </group>                                            
+			</tab>	
+			    
+		    <tab id="A03" label="ImportaRendimento"   insertAfterMso="A02"     getVisible="Tab_A03_onTabSelected">
+                <group id="A03_Grupo_Volta" getLabel="Label_A03_Grupo_Volta_getText"> 
+                   <separator id="A03_Grupo_Volta_001" visible = "false"/> 
+                   <button id="button_A03_Volta" image="Volta" label="Volta" size="large"  onAction="button_A03_Volta_OnAction"/>  
+                   <separator id="A03_Grupo_Volta_002" visible = "false"/> 
+                </group> 			    
+                <group id="A03_RodaRotina" label="Ferramentas"> 
+                    <separator id="A03_RodaRotina_001" visible = "false"/>
+                    <button id="button_A03_Limpa" image="Limpa" size="large"  onAction="button_A03_Limpa_OnAction"/>  
+                    <separator id="A03_RodaRotina_002" visible = "false"/>        
+                    <button id="button_A03_RodaRotina" image="Run" size="large"  onAction="button_A03_RodaRotina_OnAction"/>  
+                    <separator id="A03_RodaRotina_003" visible = "false"/>
+                </group>                    
+                <group id="A03_GroupSQLite" label="Banco Dados"> 
+                    <separator id="A03_GroupSQLite_002" visible = "false"/>
+                    <separator id="A03_GroupSQLite_003" visible = "false"/>        
+                    <button id="button_A03_SQLite_Salva" image="Salva" label="Salva" size="large"  onAction="button_A03_SQLite_Salva_OnAction"/>  
+                    <separator id="A03_GroupSQLite_004" visible = "false"/>
+                </group>                    
+            </tab>			    
+			    
+			    		    		
+
+			<tab id="B01" label="Parcelamento"        insertAfterMso="A03"     getVisible="Tab_B01_onTabSelected">
+                <group id="B01_Grupo_Volta" getLabel="Label_B01_Grupo_Volta_getText"> 
+                    <separator id="B01_VT_A1" visible="false"/> 
+                    <separator id="B01_VT_A2" visible="false"/>  
+                    <button id="button_B01_Volta" image="Volta" label="Volta" size="large" onAction="button_R00_Volta_OnAction"/>  
+                    <separator id="B01_VT_A3" visible="false"/> 
+                    <separator id="B01_VT_A4" visible="false"/>  
+                </group>
+                <group id="B01_GroupMes" label="Analisar">
+                    <separator id="B01_Sep_01" visible="false"/> 
+                    <labelControl id="B01_Label_Periodo_0"/> 
+                    <box id="B01_Periodo" boxStyle="horizontal">
+                        <comboBox id="Combo_B01_Tabela" 
+                            sizeString="AAAAAAAAAAAAAAAAA" 
+                            getText="ComboBox_B01_Tabela_getText"
+                            onChange="ComboBox_B01_Tabela_OnChange"> 
+                            <item id="B01_T01" label="Crédito" /> 
+                            <item id="B01_T02" label="Crédito - Divisão" /> 
+                            <item id="B01_T03" label="Débito Fixo" /> 
+                            <item id="B01_T04" label="Débido CashBack" /> 
+                            <item id="B01_T05" label="Débido VISA" /> 
+                        </comboBox>                          
+                        <comboBox id="Combo_B01_Ano" 
+                            sizeString="AAAAA" 
+                            getText="ComboBox_B01_Ano_getText"
+                            onChange="ComboBox_B01_Ano_OnChange"> 
+                            <item id="B01_A05" label="2023" /> 
+                            <item id="B01_A06" label="2024" /> 
+                            <item id="B01_A07" label="2025" /> 
+                            <item id="B01_A08" label="2026" /> 
+                        </comboBox>  	
+                    </box>
+                    <labelControl id="B01_Label_Periodo_1"/>         
+                    <separator id="B01_Sep_02" visible="false"/>     
+                </group>
+                <group id="B01_Group_SV" label="Gravar" > 
+                  <separator id="B01_SV_A1" visible="false"/> 
+                  <button id="B01_button_SV" image="PR" label="AN" screentip="Analisa" size="large"  onAction="button_B01_SV_OnAction"/>  
+                  <separator id="B01_SV_A2" visible="false"/> 
+                </group>
+                <group id="B01_GroupSQLite" label="Banco Dados"> 
+                    <separator id="B01_GroupSQLite_002" visible = "false"/>
+                    <separator id="B01_GroupSQLite_003" visible = "false"/>        
+                    <button id="button_B01_SQLite_Salva"   image="Salva" label="Salva" size="large"  onAction="button_B01_SQLite_Salva_OnAction"/>  
+                    <separator id="B01_GroupSQLite_004" visible = "false"/>
+                    <separator id="B01_GroupSQLite_005" visible="false"/> 
+                   <button id="button_B01_Atualiza" image="Atualiza" label="SDO" size="large" onAction="button_B01_Atualiza"/>                    
+                    <separator id="B01_GroupSQLite_006" visible = "false"/>
+                </group>	
+                <group id="B01_Group_Gen" label="Gerar" > 
+                  <separator id="B01_GE_A1" visible="false"/> 
+                  <button id="B01_button_GE" image="PR" label="GE" screentip="Gerar" size="large"  onAction="button_B01_GE_OnAction"/>  
+                  <separator id="B01_GE_A2" visible="false"/> 
+                </group>
+			</tab>	
+
+			<tab id="R82" label="Setup"               insertAfterMso="B01"     getVisible="Tab_R82_onTabSelected">    
+                <group id="R82_Grupo_Volta"> 
+                   <button id="button_R82_Volta" image="Volta" label="Volta" size="large"  onAction="button_R00_Volta_OnAction"/>  
+                </group> 
+                <group id="R82_Group_Teste" label="Teste"> 
+                  <button id="button_ST" image="Setup" label="Setup"          size="large" onAction="button_R82_Setup_OnAction"/>  
+                  <button id="button_TB" image="Tab"   label="Tabela Tickers" size="large" onAction="button_R82_Tabela_OnAction"/>  
+                  <button id="button_TS" image="Hands" label="Teste"          size="large" onAction="button_R82_Teste_OnAction"/>  
+                  <button id="button_IM" image="DI"    label="Movimento"      size="large" onAction="button_R82_Investe_OnAction"/>  
+                </group>                   
+			</tab>
+
+			<tab id="R80" label="Formatação"          insertAfterMso="R82">
+				<group idMso="GroupClipboard" />
+				<group idMso="GroupFont" />
+				<group idMso="GroupAlignmentExcel"/>
+			</tab>
+
+			<tab id="R81" label="Desenvolvimento"     insertAfterMso="R80">
+				<group idMso="GroupCode"/>
+				<group idMso="GroupControls"/>
+                <group id="Group1" label="Seletor Tab"> 
+                   <checkBox id="R81_TabView" 
+                             label="Mostrar/Esconder" 
+                             onAction="CheckBox_R81_TabViewOnAction"/> 
+                </group> 				
+				<group idMso="GroupChartShapes"/>
+				<group idMso="GroupCells"/>
+			</tab>
+
+			<tab id="R83" label="Dados"               insertAfterMso="R81">
+				<group idMso="GroupSortFilter"/>
+				<group idMso="GroupViewShowHide" />
+				<group idMso="GroupWindow"/>
+			</tab>
+            <tab id="MyCustomDataTab" label="Data-Tools" insertAfterMso="R83">
+                <group idMso="GroupPowerQueryGetTransformDataSubscription19" visible="true"/> 
+                <group idMso="GroupDataQueriesAndConnections" visible="true"/> 
+                <group idMso="GroupLinkedEntityConvert" visible="true"/>
+                <group idMso="GroupFormulaAuditing" visible="true"/> 
+            </tab>
+		</tabs>
+	</ribbon>
+</customUI>
