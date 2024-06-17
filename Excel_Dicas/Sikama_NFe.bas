@@ -41,12 +41,12 @@ Private Sub teste()
        Sheets("GERAL").Range("B" & xx & ":L" & xx).Interior.ColorIndex = 0
        Sheets("GERAL").Range("B" & xx & ":L" & xx).Font.ColorIndex = 1
    
-      ' LOGÕSTICAS
+      ' LOG√çSTICAS
    
         yy = 13
         Do While Len(Trim(Sheets("Inconsistencias").Range("A" & yy).Value)) > 0
           
-           If InStr(1, Sheets("Inconsistencias").Range("A" & yy).Value, "OUTRAS OBSERVA«’ES") > 0 Then
+           If InStr(1, Sheets("Inconsistencias").Range("A" & yy).Value, "OUTRAS OBSERVA√á√ïES") > 0 Then
               Exit Do
            End If
           
@@ -136,55 +136,55 @@ Private Function criticas(ByVal dMSG As Double, ByVal xx As Double, ByVal strK A
 
     Select Case dMSG
      
-        Case 1   '- InconsistÍncia\Estoque Bloqueado
+        Case 1   '- Inconsist√™ncia\Estoque Bloqueado
              Sheets("GERAL").Range("K" & xx).Value = strK
-             Sheets("GERAL").Range("L" & xx).Value = "001 - InconsistÍncia\Estoque Bloqueado"
+             Sheets("GERAL").Range("L" & xx).Value = "001 - Inconsist√™ncia\Estoque Bloqueado"
              Exit Function
-        Case 2   '- CÛdigo Emitente x Municipio
+        Case 2   '- C√≥digo Emitente x Municipio
              Sheets("GERAL").Range("K" & xx).Value = strK
-             Sheets("GERAL").Range("L" & xx).Value = "002 - CÛdigo Emitente x Municipio"
+             Sheets("GERAL").Range("L" & xx).Value = "002 - C√≥digo Emitente x Municipio"
              Exit Function
-        Case 3   '- EndereÁo do Destinat·rio - Complemento
+        Case 3   '- Endere√ßo do Destinat√°rio - Complemento
              Sheets("GERAL").Range("K" & xx).Value = strK
-             Sheets("GERAL").Range("L" & xx).Value = "003 - EndereÁo do Destinat·rio - Complemento"
+             Sheets("GERAL").Range("L" & xx).Value = "003 - Endere√ßo do Destinat√°rio - Complemento"
              Exit Function
-        Case 4   '- Logistica informar· assim que possÌvel
+        Case 4   '- Logistica informar√° assim que poss√≠vel
              Sheets("GERAL").Range("K" & xx).Value = strK
-             Sheets("GERAL").Range("L" & xx).Value = "004 - Logistica informar· assim que possÌvel"
+             Sheets("GERAL").Range("L" & xx).Value = "004 - Logistica informar√° assim que poss√≠vel"
              Exit Function
-        Case 5   '- Logistica informar· assim que possÌvel
+        Case 5   '- Logistica informar√° assim que poss√≠vel
              Sheets("GERAL").Range("K" & xx).Value = strK
-             Sheets("GERAL").Range("L" & xx).Value = "005 - Data de FabricaÁ„o do Lote Inv·lida"
-             Exit Function
-        
-        Case 6   '- Logistica informar· assim que possÌvel
-             Sheets("GERAL").Range("K" & xx).Value = strK
-             Sheets("GERAL").Range("L" & xx).Value = "006 - Problemas no sistema da logÌstica "
+             Sheets("GERAL").Range("L" & xx).Value = "005 - Data de Fabrica√ß√£o do Lote Inv√°lida"
              Exit Function
         
-        Case 7   '- Logistica informar· assim que possÌvel
+        Case 6   '- Logistica informar√° assim que poss√≠vel
              Sheets("GERAL").Range("K" & xx).Value = strK
-             Sheets("GERAL").Range("L" & xx).Value = "007 - Sem saldo para atender a solicitaÁ„o"
+             Sheets("GERAL").Range("L" & xx).Value = "006 - Problemas no sistema da log√≠stica "
              Exit Function
         
-        Case 8   '- Logistica informar· assim que possÌvel
+        Case 7   '- Logistica informar√° assim que poss√≠vel
+             Sheets("GERAL").Range("K" & xx).Value = strK
+             Sheets("GERAL").Range("L" & xx).Value = "007 - Sem saldo para atender a solicita√ß√£o"
+             Exit Function
+        
+        Case 8   '- Logistica informar√° assim que poss√≠vel
              Sheets("GERAL").Range("K" & xx).Value = strK
              Sheets("GERAL").Range("L" & xx).Value = "008 - Item solicitado em duplicidade"
              Exit Function
         
-        Case 9   '- Logistica informar· assim que possÌvel
+        Case 9   '- Logistica informar√° assim que poss√≠vel
              Sheets("GERAL").Range("K" & xx).Value = strK
-             Sheets("GERAL").Range("L" & xx).Value = "009 - Erro de convers„o (Tamanho do Campo)"
+             Sheets("GERAL").Range("L" & xx).Value = "009 - Erro de convers√£o (Tamanho do Campo)"
              Exit Function
         
-        Case 10   '- Logistica informar· assim que possÌvel
+        Case 10   '- Logistica informar√° assim que poss√≠vel
              Sheets("GERAL").Range("K" & xx).Value = strK
              Sheets("GERAL").Range("L" & xx).Value = "010 - Item solicitado em duplicidade"
              Exit Function
         
-        Case 210 '- IE do destinat·rio inv·lida"
+        Case 210 '- IE do destinat√°rio inv√°lida"
              Sheets("GERAL").Range("K" & xx).Value = strK
-             Sheets("GERAL").Range("L" & xx).Value = "210 - IE do destinat·rio inv·lida"
+             Sheets("GERAL").Range("L" & xx).Value = "210 - IE do destinat√°rio inv√°lida"
              Exit Function
 
     End Select
