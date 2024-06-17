@@ -273,7 +273,7 @@ Private Function Ver_Mes(ByVal iMes As Integer)
 
     Tab_Mes(1) = "Janeiro"
     Tab_Mes(2) = "Fevereiro"
-    Tab_Mes(3) = "Março"
+    Tab_Mes(3) = "MarÃ§o"
     Tab_Mes(4) = "Abril"
     Tab_Mes(5) = "Maio"
     Tab_Mes(6) = "Junho"
