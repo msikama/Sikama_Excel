@@ -168,7 +168,7 @@ Sub onLoad(Ribbon As IRibbonUI)
 
 
 
-   'Ribbon - AplicaÁ„o Movimento
+   'Ribbon - Aplica√ß√£o Movimento
 
     tab_A00(1) = "0000"
     tab_A00(2) = "0,00"
@@ -180,7 +180,7 @@ Sub onLoad(Ribbon As IRibbonUI)
     tab_A00(8) = "0,00"
     tab_A00(9) = "0,00"
 
-   'Ribbon - AplicaÁ„o Movimento
+   'Ribbon - Aplica√ß√£o Movimento
 
     tab_A01(1) = "0000"
     tab_A01(2) = "0,00"
@@ -189,7 +189,7 @@ Sub onLoad(Ribbon As IRibbonUI)
     tab_A01(5) = "0,00"
     tab_A01(6) = "0,00"
 
-   'Ribbon - AplicaÁ„o Movimento
+   'Ribbon - Aplica√ß√£o Movimento
 
     tab_A02(1) = "0,00"
     tab_A02(2) = "0,00"
@@ -548,7 +548,7 @@ Sub DialogBoxLauncher_R00_BX_Diff_OnAction(control As IRibbonControl)
     If bShow = False Then
        frm_Verifica_Juros.Show vbModeless + vbPopup
     Else
-       MsgBox "Formul·rio j· ativo", vbOKOnly, ""
+       MsgBox "Formul√°rio j√° ativo", vbOKOnly, ""
     End If
  
 End Sub
