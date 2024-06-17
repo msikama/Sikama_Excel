@@ -11,7 +11,7 @@ Sub Label_R01_Grupo_Volta_getText(control As IRibbonControl, ByRef returnedVal)
 End Sub
 
 '=---------------------------------------------=
-'= Mês
+'= MÃªs
 '=---------------------------------------------=
 
 'Callback for Combo_R01_Mes getText
