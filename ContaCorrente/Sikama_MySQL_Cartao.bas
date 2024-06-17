@@ -16,7 +16,7 @@ Public Sub Valida_Cartao()
        End If
     On Error GoTo 0:
     
-    Sheets("Lançamentos").Select
+    Sheets("LanÃ§amentos").Select
     DoEvents
 
     dCTRL = 0
@@ -33,7 +33,7 @@ Public Sub Valida_Cartao()
     
     Sheets("Validando").Range("B3").Value = "Final"
     Sheets("Validando").Range("C3").Value = "Data"
-    Sheets("Validando").Range("D3").Value = "lançamento"
+    Sheets("Validando").Range("D3").Value = "lanÃ§amento"
     Sheets("Validando").Range("E3").Value = "Origem"
     Sheets("Validando").Range("F3").Value = "Valor"
     Sheets("Validando").Range("G3").Value = "Registro"
@@ -55,7 +55,7 @@ Public Sub Valida_Cartao()
     
            If InStr(Range("A" & dLin).Value, "total nacional") > 0 Then
                Sheets("Validando").Range("B" & dNovo).Value = sCar
-               Sheets("Validando").Range("D" & dNovo).Value = "Total nacional do cartão"
+               Sheets("Validando").Range("D" & dNovo).Value = "Total nacional do cartÃ£o"
                Sheets("Validando").Range("F" & dNovo).Value = CDbl(Range("D" & dLin).Value)
                dNovo = dNovo + 1
            ElseIf InStr(Range("A" & dLin).Value, "- final") > 0 Then
@@ -98,7 +98,7 @@ Public Sub Valida_Cartao()
     Sheets("Validando").Select
     DoEvents
 
-    sTab_Date = Split(Sheets("Lançamentos").Range("B2").Value, Space(1))
+    sTab_Date = Split(Sheets("LanÃ§amentos").Range("B2").Value, Space(1))
 
     Dim dtaWrk As Date
 
