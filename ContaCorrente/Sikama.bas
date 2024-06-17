@@ -16,7 +16,7 @@ Public Sub Extrato_Itau_Limpa()
    
     
     Sheets("Limpo").Range("D5").Value = "data"
-    Sheets("Limpo").Range("E5").Value = "lançamento"
+    Sheets("Limpo").Range("E5").Value = "lanÃ§amento"
     Sheets("Limpo").Range("F5").Value = "ag./origem"
     Sheets("Limpo").Range("G5").Value = "valor (R$)"
     Sheets("Limpo").Range("H5").Value = "saldos (R$)"
@@ -24,17 +24,17 @@ Public Sub Extrato_Itau_Limpa()
     dLin = 12
     dNew = 6
     
-    Do While Len(Trim(Sheets("Lançamentos").Range("B" & dLin).Value))
+    Do While Len(Trim(Sheets("LanÃ§amentos").Range("B" & dLin).Value))
 
-       If InStr(Sheets("Lançamentos").Range("A" & dLin).Value, "lançamentos futuros") > 0 Then
+       If InStr(Sheets("LanÃ§amentos").Range("A" & dLin).Value, "lanÃ§amentos futuros") > 0 Then
           Exit Do
        End If
 
-       If InStr(Sheets("Lançamentos").Range("B" & dLin).Value, "SALDO") = 0 Then
-          Sheets("Limpo").Range("D" & dNew).Value = Sheets("Lançamentos").Range("A" & dLin).Value
-          Sheets("Limpo").Range("E" & dNew).Value = Sheets("Lançamentos").Range("B" & dLin).Value
-          Sheets("Limpo").Range("F" & dNew).Value = Sheets("Lançamentos").Range("C" & dLin).Value
-          Sheets("Limpo").Range("G" & dNew).Value = Sheets("Lançamentos").Range("D" & dLin).Value
+       If InStr(Sheets("LanÃ§amentos").Range("B" & dLin).Value, "SALDO") = 0 Then
+          Sheets("Limpo").Range("D" & dNew).Value = Sheets("LanÃ§amentos").Range("A" & dLin).Value
+          Sheets("Limpo").Range("E" & dNew).Value = Sheets("LanÃ§amentos").Range("B" & dLin).Value
+          Sheets("Limpo").Range("F" & dNew).Value = Sheets("LanÃ§amentos").Range("C" & dLin).Value
+          Sheets("Limpo").Range("G" & dNew).Value = Sheets("LanÃ§amentos").Range("D" & dLin).Value
           dNew = dNew + 1
        End If
 
@@ -54,7 +54,7 @@ Public Sub Extrato_Itau_Limpas()
 
    sTab(1) = "Janeiro"
    sTab(2) = "Fevereiro"
-   sTab(3) = "Março"
+   sTab(3) = "MarÃ§o"
    sTab(4) = "Abril"
    sTab(5) = "Maio"
    sTab(6) = "Junho"
@@ -67,13 +67,13 @@ Public Sub Extrato_Itau_Limpas()
    
 
    If Range("B5").Value <> "59548-9" And Range("C5").Value <> "59548-9" Then
-      MsgBox "Não é uma planilha de Extrato - Itau"
+      MsgBox "NÃ£o Ã© uma planilha de Extrato - Itau"
       Exit Sub
    End If
 
    If Range("B5").Value = "59548-9" Then
       Columns("A:A").Insert Shift:=xlToRight, CopyOrigin:=xlFormatFromLeftOrAbove
-      Range("B5").Value = "Mês"
+      Range("B5").Value = "MÃªs"
    End If
 
    dLin = 10
@@ -83,7 +83,7 @@ Public Sub Extrato_Itau_Limpas()
            Range("C" & dLin).Value <> "SALDO DO DIA" And _
            Range("C" & dLin).Value <> "SALDO ANTERIOR" Then
         
-           If Range("C" & dLin).Value = "lançamentos futuros" Then
+           If Range("C" & dLin).Value = "lanÃ§amentos futuros" Then
               Exit Do
            End If
         
