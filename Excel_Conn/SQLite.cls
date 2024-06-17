@@ -56,7 +56,7 @@ Public Function Sequencia_Table(ByVal sTabela As String, ByRef sMes As String) A
      
      tab_Mes(1) = "Janeiro"
      tab_Mes(2) = "Fevereiro"
-     tab_Mes(3) = "Março"
+     tab_Mes(3) = "MarÃ§o"
      tab_Mes(4) = "Abril"
      tab_Mes(5) = "Maio"
      tab_Mes(6) = "Junho"
@@ -129,7 +129,7 @@ Public Function Update_Table(ByVal sTabela As String) As Boolean
         sOrdem = "@@@@@@@@"
      End If
 
-        If InStr(sLancamento, "Cartão Cash Back""") > 0 Then
+        If InStr(sLancamento, "CartÃ£o Cash Back""") > 0 Then
            sLancamento = Replace(sLancamento, """""", "")
           ' Stop
         End If
@@ -215,10 +215,10 @@ Public Function Update_Table(ByVal sTabela As String) As Boolean
          conn.Execute sSQL, dResult
     
          If dResult > 0 Then
-            sResult = "Incluído com Sucesso"
+            sResult = "IncluÃ­do com Sucesso"
             Update_Table = True
          Else
-           sResult = "Não Incluído"
+           sResult = "NÃ£o IncluÃ­do"
            Update_Table = False
            Stop
          End If
@@ -245,7 +245,7 @@ Public Function Delete_Table(ByVal sTabela As String) As Boolean
      End If
 
      If Len(Trim(sOrdem)) = 0 Then
-        MsgBox "Linha sem Número de Ordem.", vbInformation + vbOKOnly, ""
+        MsgBox "Linha sem NÃºmero de Ordem.", vbInformation + vbOKOnly, ""
         Exit Function
      End If
 
@@ -253,7 +253,7 @@ Public Function Delete_Table(ByVal sTabela As String) As Boolean
 
      Delete_Table = False
 
-        If InStr(sLancamento, "Cartão Cash Back""") > 0 Then
+        If InStr(sLancamento, "CartÃ£o Cash Back""") > 0 Then
            sLancamento = Replace(sLancamento, """""", "")
         End If
     
@@ -264,7 +264,7 @@ Public Function Delete_Table(ByVal sTabela As String) As Boolean
          conn.Execute sSQL, dResult
           
          If dResult > 0 Then
-            sResult = "Excluído com Sucesso"
+            sResult = "ExcluÃ­do com Sucesso"
             Delete_Table = True
          Else
             Stop
