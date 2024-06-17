@@ -23,10 +23,10 @@ Public Sub Valida_Extrato()
        End If
     On Error GoTo 0:
     
-    Sheets("LanÁamentos").Select
+    Sheets("Lan√ßamentos").Select
     DoEvents
 
-    sTab_Date = Split(Sheets("LanÁamentos").Range("A12").Value, Space(1))
+    sTab_Date = Split(Sheets("Lan√ßamentos").Range("A12").Value, Space(1))
 
     Dim dtaWrk As Date
 
@@ -36,7 +36,7 @@ Public Sub Valida_Extrato()
     Sheets("Validando").Range("D2").Value = sMes
     Sheets("Validando").Range("E2").Value = sAno
     Sheets("Validando").Range("B4").Value = "data"
-    Sheets("Validando").Range("C4").Value = "lanÁamento"
+    Sheets("Validando").Range("C4").Value = "lan√ßamento"
     Sheets("Validando").Range("D4").Value = "ag./origem"
     Sheets("Validando").Range("E4").Value = "valor (R$)"
     Sheets("Validando").Range("G4").Value = "Validando"
@@ -78,9 +78,9 @@ Public Sub Valida_Extrato()
 
     For dIDX = 1 To 100000
 
-       If dCTRL > 10 Or InStr(Sheets("LanÁamentos").Range("A" & dIDX).Value, "lanÁamentos futuros") > 0 Then
+       If dCTRL > 10 Or InStr(Sheets("Lan√ßamentos").Range("A" & dIDX).Value, "lan√ßamentos futuros") > 0 Then
            Exit For
-       ElseIf Len(Trim(Sheets("LanÁamentos").Range("A" & dIDX).Value)) = 0 Then
+       ElseIf Len(Trim(Sheets("Lan√ßamentos").Range("A" & dIDX).Value)) = 0 Then
            dCTRL = dCTRL + 1
        Else
            dCTRL = 0
@@ -88,10 +88,10 @@ Public Sub Valida_Extrato()
            DoEvents
        End If
        
-       If IsDate(Sheets("LanÁamentos").Range("A" & dIDX).Value) = True Then
+       If IsDate(Sheets("Lan√ßamentos").Range("A" & dIDX).Value) = True Then
     
-           If InStr(Sheets("LanÁamentos").Range("A" & dIDX).Value, "/") > 0 And _
-              InStr(UCase(Sheets("LanÁamentos").Range("B" & dIDX).Value), "SALDO") > 0 And _
+           If InStr(Sheets("Lan√ßamentos").Range("A" & dIDX).Value, "/") > 0 And _
+              InStr(UCase(Sheets("Lan√ßamentos").Range("B" & dIDX).Value), "SALDO") > 0 And _
               bFLG = False Then
     
                 bFLG = True
@@ -101,120 +101,120 @@ Public Sub Valida_Extrato()
                 Sheets("Validando").Range("D" & dNew).HorizontalAlignment = xlCenter
                 Sheets("Validando").Range("E" & dNew).HorizontalAlignment = xlRight
                 
-                sDia_A = Day(Sheets("LanÁamentos").Range("A" & dIDX).Value)
-                sMes_A = Month(Sheets("LanÁamentos").Range("A" & dIDX).Value)
-                sAno_A = Year(Sheets("LanÁamentos").Range("A" & dIDX).Value)
+                sDia_A = Day(Sheets("Lan√ßamentos").Range("A" & dIDX).Value)
+                sMes_A = Month(Sheets("Lan√ßamentos").Range("A" & dIDX).Value)
+                sAno_A = Year(Sheets("Lan√ßamentos").Range("A" & dIDX).Value)
                 
                 Sheets("Validando").Range("B" & dNew).NumberFormat = "@"
                 Sheets("Validando").Range("B" & dNew).Value = Right("00" & sDia_A, 2) & "/" & Right("00" & sMes_A, 2) & "/" & sAno_A
-                Sheets("Validando").Range("C" & dNew).Value = Sheets("LanÁamentos").Range("B" & dIDX).Value
-                Sheets("Validando").Range("D" & dNew).Value = Sheets("LanÁamentos").Range("C" & dIDX).Value
+                Sheets("Validando").Range("C" & dNew).Value = Sheets("Lan√ßamentos").Range("B" & dIDX).Value
+                Sheets("Validando").Range("D" & dNew).Value = Sheets("Lan√ßamentos").Range("C" & dIDX).Value
                 
-                If InStr(1, Sheets("LanÁamentos").Range("E" & dIDX - 1).Value, "-") > 0 Then
+                If InStr(1, Sheets("Lan√ßamentos").Range("E" & dIDX - 1).Value, "-") > 0 Then
                    Sheets("Validando").Range("B" & dNew & ":E" & dNew).Font.Bold = True
                    Sheets("Validando").Range("B" & dNew & ":E" & dNew).Font.Color = RGB(51, 0, 0)
-                   sValor = Replace(Sheets("LanÁamentos").Range("E" & dIDX).Value, "-", "")
+                   sValor = Replace(Sheets("Lan√ßamentos").Range("E" & dIDX).Value, "-", "")
                    dValor = CDbl(sValor) * -1
                 Else
                    Sheets("Validando").Range("B" & dNew & ":E" & dNew).Font.Bold = True
                    Sheets("Validando").Range("B" & dNew & ":E" & dNew).Font.Color = RGB(0, 0, 51)
-                   dValor = CDbl(Sheets("LanÁamentos").Range("E" & dIDX).Value)
+                   dValor = CDbl(Sheets("Lan√ßamentos").Range("E" & dIDX).Value)
                 End If
     
                 Sheets("Validando").Range("E" & dNew).NumberFormat = "#,##0.00"
                 Sheets("Validando").Range("E" & dNew).Value = dValor
                 dNew = dNew + 1
     
-           ElseIf InStr(Sheets("LanÁamentos").Range("A" & dIDX).Value, "/") > 0 And _
-                 InStr(UCase(Sheets("LanÁamentos").Range("B" & dIDX).Value), "SALDO") > 0 Then
+           ElseIf InStr(Sheets("Lan√ßamentos").Range("A" & dIDX).Value, "/") > 0 And _
+                 InStr(UCase(Sheets("Lan√ßamentos").Range("B" & dIDX).Value), "SALDO") > 0 Then
                  
                  dULI = dIDX
     
            Else
                
-               If InStr(Sheets("LanÁamentos").Range("A" & dIDX).Value, "/") > 0 And _
-                  InStr(UCase(Sheets("LanÁamentos").Range("B" & dIDX).Value), "SALDO") = 0 Then
+               If InStr(Sheets("Lan√ßamentos").Range("A" & dIDX).Value, "/") > 0 And _
+                  InStr(UCase(Sheets("Lan√ßamentos").Range("B" & dIDX).Value), "SALDO") = 0 Then
         
                     Sheets("Validando").Range("B" & dNew).HorizontalAlignment = xlCenter
                     Sheets("Validando").Range("C" & dNew).HorizontalAlignment = xlLeft
                     Sheets("Validando").Range("D" & dNew).HorizontalAlignment = xlCenter
                     Sheets("Validando").Range("E" & dNew).HorizontalAlignment = xlRight
                     
-                    sDia_A = Day(Sheets("LanÁamentos").Range("A" & dIDX).Value)
-                    sMes_A = Month(Sheets("LanÁamentos").Range("A" & dIDX).Value)
-                    sAno_A = Year(Sheets("LanÁamentos").Range("A" & dIDX).Value)
+                    sDia_A = Day(Sheets("Lan√ßamentos").Range("A" & dIDX).Value)
+                    sMes_A = Month(Sheets("Lan√ßamentos").Range("A" & dIDX).Value)
+                    sAno_A = Year(Sheets("Lan√ßamentos").Range("A" & dIDX).Value)
                     
                     Sheets("Validando").Range("B" & dNew).NumberFormat = "@"
                     Sheets("Validando").Range("B" & dNew).Value = Right("00" & sDia_A, 2) & "/" & Right("00" & sMes_A, 2) & "/" & sAno_A
-                    Sheets("Validando").Range("C" & dNew).Value = Sheets("LanÁamentos").Range("B" & dIDX).Value
-                    Sheets("Validando").Range("D" & dNew).Value = Sheets("LanÁamentos").Range("C" & dIDX).Value
+                    Sheets("Validando").Range("C" & dNew).Value = Sheets("Lan√ßamentos").Range("B" & dIDX).Value
+                    Sheets("Validando").Range("D" & dNew).Value = Sheets("Lan√ßamentos").Range("C" & dIDX).Value
         
                     '*** DIVIDENDOS
         
-                    If InStr(Sheets("LanÁamentos").Range("B" & dIDX).Value, "OPERACOES") > 0 Or _
-                       InStr(Sheets("LanÁamentos").Range("B" & dIDX).Value, "DIVIDENDOS") > 0 Or _
-                       InStr(Sheets("LanÁamentos").Range("B" & dIDX).Value, "JSCP") > 0 Or _
-                       InStr(Sheets("LanÁamentos").Range("B" & dIDX).Value, "ACOES") > 0 Then
+                    If InStr(Sheets("Lan√ßamentos").Range("B" & dIDX).Value, "OPERACOES") > 0 Or _
+                       InStr(Sheets("Lan√ßamentos").Range("B" & dIDX).Value, "DIVIDENDOS") > 0 Or _
+                       InStr(Sheets("Lan√ßamentos").Range("B" & dIDX).Value, "JSCP") > 0 Or _
+                       InStr(Sheets("Lan√ßamentos").Range("B" & dIDX).Value, "ACOES") > 0 Then
                        
                        Sheets("Validando").Range("D" & dNew).Value = "Dividendos"
                    
                     '*** A VISTA
                     
-                    ElseIf InStr(Sheets("LanÁamentos").Range("B" & dIDX).Value, "RSHOP") > 0 Or _
-                           InStr(Sheets("LanÁamentos").Range("B" & dIDX).Value, "RSCCS") > 0 Or _
-                           InStr(Sheets("LanÁamentos").Range("B" & dIDX).Value, "RSCSS") > 0 Then
+                    ElseIf InStr(Sheets("Lan√ßamentos").Range("B" & dIDX).Value, "RSHOP") > 0 Or _
+                           InStr(Sheets("Lan√ßamentos").Range("B" & dIDX).Value, "RSCCS") > 0 Or _
+                           InStr(Sheets("Lan√ßamentos").Range("B" & dIDX).Value, "RSCSS") > 0 Then
                        
                        Sheets("Validando").Range("D" & dNew).Value = "A_Vista"
                     
                     '*** PROVENTOS
                     
-                    ElseIf InStr(Sheets("LanÁamentos").Range("B" & dIDX).Value, "RENDIMENTO") > 0 Then
+                    ElseIf InStr(Sheets("Lan√ßamentos").Range("B" & dIDX).Value, "RENDIMENTO") > 0 Then
                        Sheets("Validando").Range("D" & dNew).Value = "Proventos-FIIS"
                     
-                    '*** POUPAN«A
+                    '*** POUPAN√áA
                     
-                    ElseIf InStr(Sheets("LanÁamentos").Range("B" & dIDX).Value, "POUP AUT") > 0 Then
-                       Sheets("Validando").Range("D" & dNew).Value = "Ita˙-Juros"
+                    ElseIf InStr(Sheets("Lan√ßamentos").Range("B" & dIDX).Value, "POUP AUT") > 0 Then
+                       Sheets("Validando").Range("D" & dNew).Value = "Ita√∫-Juros"
                     
                     
                     '*** MENSAL
                     
-                    ElseIf InStr(Sheets("LanÁamentos").Range("B" & dIDX).Value, "INT PAG TIT") > 0 Or _
-                       InStr(Sheets("LanÁamentos").Range("B" & dIDX).Value, "ELETROPAULO") > 0 Or _
-                       InStr(Sheets("LanÁamentos").Range("B" & dIDX).Value, "VIVO-SP") > 0 Or _
-                       InStr(Sheets("LanÁamentos").Range("B" & dIDX).Value, "VIVO-SP") > 0 Or _
-                       InStr(Sheets("LanÁamentos").Range("B" & dIDX).Value, "PREMIO VGBL") > 0 Or _
-                       InStr(Sheets("LanÁamentos").Range("B" & dIDX).Value, "SEGURO CARTAO") > 0 Or _
-                       InStr(Sheets("LanÁamentos").Range("B" & dIDX).Value, "PERS BLACK") > 0 Or _
-                       InStr(Sheets("LanÁamentos").Range("B" & dIDX).Value, "PERS INFINIT") > 0 Or _
-                       InStr(Sheets("LanÁamentos").Range("B" & dIDX).Value, "ITAU BLACK") > 0 Or _
-                       InStr(Sheets("LanÁamentos").Range("B" & dIDX).Value, "MOBILEPAG") > 0 Then
+                    ElseIf InStr(Sheets("Lan√ßamentos").Range("B" & dIDX).Value, "INT PAG TIT") > 0 Or _
+                       InStr(Sheets("Lan√ßamentos").Range("B" & dIDX).Value, "ELETROPAULO") > 0 Or _
+                       InStr(Sheets("Lan√ßamentos").Range("B" & dIDX).Value, "VIVO-SP") > 0 Or _
+                       InStr(Sheets("Lan√ßamentos").Range("B" & dIDX).Value, "VIVO-SP") > 0 Or _
+                       InStr(Sheets("Lan√ßamentos").Range("B" & dIDX).Value, "PREMIO VGBL") > 0 Or _
+                       InStr(Sheets("Lan√ßamentos").Range("B" & dIDX).Value, "SEGURO CARTAO") > 0 Or _
+                       InStr(Sheets("Lan√ßamentos").Range("B" & dIDX).Value, "PERS BLACK") > 0 Or _
+                       InStr(Sheets("Lan√ßamentos").Range("B" & dIDX).Value, "PERS INFINIT") > 0 Or _
+                       InStr(Sheets("Lan√ßamentos").Range("B" & dIDX).Value, "ITAU BLACK") > 0 Or _
+                       InStr(Sheets("Lan√ßamentos").Range("B" & dIDX).Value, "MOBILEPAG") > 0 Then
                     
                        Sheets("Validando").Range("D" & dNew).Value = "Mensal"
                     
-                    ElseIf InStr(Sheets("LanÁamentos").Range("B" & dIDX).Value, "REMUNERACAO/SALARIO") > 0 Then
+                    ElseIf InStr(Sheets("Lan√ßamentos").Range("B" & dIDX).Value, "REMUNERACAO/SALARIO") > 0 Then
                        Sheets("Validando").Range("D" & dNew).Value = "Luandre"
                     
-                    ElseIf InStr(Sheets("LanÁamentos").Range("B" & dIDX).Value, "COR  SUBSC") > 0 Then
+                    ElseIf InStr(Sheets("Lan√ßamentos").Range("B" & dIDX).Value, "COR  SUBSC") > 0 Then
                        Sheets("Validando").Range("D" & dNew).Value = "PicPay-Inv"
                     End If
         
                     
-                    If InStr(1, Sheets("LanÁamentos").Range("D" & dIDX).Value, "-") > 0 Then
+                    If InStr(1, Sheets("Lan√ßamentos").Range("D" & dIDX).Value, "-") > 0 Then
                        Sheets("Validando").Range("B" & dNew & ":E" & dNew).Font.Bold = False
                        Sheets("Validando").Range("B" & dNew & ":E" & dNew).Font.Color = RGB(51, 0, 0)
-                       sValor = Replace(Sheets("LanÁamentos").Range("D" & dIDX).Value, "-", "")
+                       sValor = Replace(Sheets("Lan√ßamentos").Range("D" & dIDX).Value, "-", "")
                        dValor = CDbl(sValor) * -1
                     Else
                        Sheets("Validando").Range("B" & dNew & ":E" & dNew).Font.Bold = False
                        Sheets("Validando").Range("B" & dNew & ":E" & dNew).Font.Color = RGB(0, 0, 51)
-                       dValor = CDbl(Sheets("LanÁamentos").Range("D" & dIDX).Value)
+                       dValor = CDbl(Sheets("Lan√ßamentos").Range("D" & dIDX).Value)
                     End If
     
                     Sheets("Validando").Range("E" & dNew).NumberFormat = "#,##0.00"
                     Sheets("Validando").Range("E" & dNew).Value = dValor
                     
-                    If InStr(Sheets("LanÁamentos").Range("B" & dIDX).Value, "PIX TRANSF  MARCIO") > 0 Then
+                    If InStr(Sheets("Lan√ßamentos").Range("B" & dIDX).Value, "PIX TRANSF  MARCIO") > 0 Then
                        
                        If dValor >= 0 Then
                           Sheets("Validando").Range("D" & dNew).Value = "PIX-Pagamento"
@@ -222,20 +222,20 @@ Public Sub Valida_Extrato()
                           Sheets("Validando").Range("D" & dNew).Value = "PIX-PicPay"
                        End If
                     
-                    ElseIf InStr(Sheets("LanÁamentos").Range("B" & dIDX).Value, "PIX") > 0 Then
+                    ElseIf InStr(Sheets("Lan√ßamentos").Range("B" & dIDX).Value, "PIX") > 0 Then
                     
                        If dValor >= 0 Then
                           Sheets("Validando").Range("D" & dNew).Value = "PIX-Pagamento"
                        Else
-                          Sheets("Validando").Range("D" & dNew).Value = "PIX-DepÛsito"
+                          Sheets("Validando").Range("D" & dNew).Value = "PIX-Dep√≥sito"
                        End If
                        
-                    ElseIf InStr(Sheets("LanÁamentos").Range("B" & dIDX).Value, "TED") > 0 Then
+                    ElseIf InStr(Sheets("Lan√ßamentos").Range("B" & dIDX).Value, "TED") > 0 Then
                     
                        If dValor >= 0 Then
                           Sheets("Validando").Range("D" & dNew).Value = "Transferencia"
                        Else
-                          Sheets("Validando").Range("D" & dNew).Value = "DepÛsito"
+                          Sheets("Validando").Range("D" & dNew).Value = "Dep√≥sito"
                        End If
                        
                     End If
@@ -255,21 +255,21 @@ Public Sub Valida_Extrato()
     Sheets("Validando").Range("C" & dNew).HorizontalAlignment = xlLeft
     Sheets("Validando").Range("D" & dNew).HorizontalAlignment = xlCenter
     Sheets("Validando").Range("E" & dNew).HorizontalAlignment = xlRight
-    Sheets("Validando").Range("B" & dNew).Value = Sheets("LanÁamentos").Range("A" & dULI).Value
+    Sheets("Validando").Range("B" & dNew).Value = Sheets("Lan√ßamentos").Range("A" & dULI).Value
     Sheets("Validando").Range("C" & dNew).Value = "SALDO FINAL"
-    Sheets("Validando").Range("D" & dNew).Value = Sheets("LanÁamentos").Range("C" & dULI).Value
+    Sheets("Validando").Range("D" & dNew).Value = Sheets("Lan√ßamentos").Range("C" & dULI).Value
     
-    If InStr(1, Sheets("LanÁamentos").Range("E" & dIDX - 1).Value, "-") > 0 Then
+    If InStr(1, Sheets("Lan√ßamentos").Range("E" & dIDX - 1).Value, "-") > 0 Then
        Sheets("Validando").Range("B" & dNew & ":E" & dNew).Font.Bold = True
        Sheets("Validando").Range("B" & dNew & ":E" & dNew).Font.Color = RGB(51, 0, 0)
-       sValor = Replace(Sheets("LanÁamentos").Range("E" & dIDX - 1).Value, "-", "")
+       sValor = Replace(Sheets("Lan√ßamentos").Range("E" & dIDX - 1).Value, "-", "")
        dValor = CDbl(sValor) * -1
     Else
        Sheets("Validando").Range("B" & dNew & ":E" & dNew).Font.Bold = True
        Sheets("Validando").Range("B" & dNew & ":E" & dNew).Font.Color = RGB(0, 0, 51)
        
-       If Len(Trim(Sheets("LanÁamentos").Range("E" & dULI).Value)) > 0 Then
-          dValor = CDbl(Sheets("LanÁamentos").Range("E" & dULI).Value)
+       If Len(Trim(Sheets("Lan√ßamentos").Range("E" & dULI).Value)) > 0 Then
+          dValor = CDbl(Sheets("Lan√ßamentos").Range("E" & dULI).Value)
        End If
     End If
 
